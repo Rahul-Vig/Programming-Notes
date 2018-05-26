@@ -1,0 +1,4661 @@
+Chapter 1: Getting Started
+-C++ is a blend of C with the support of object-oriented programming
+-OOP concepts: objects, classes, encapsulation, data hiding, polymorphism and inheritance.
+-C++ also supports generic programming.
+-C++ blends 3 programming traditions: 1) the procedural language tradition represented by C. 2) Object-oriented programming. 3) Generic programming, supported by C++ templates
+
+*An operating system is a set of programs that manages a computers resources and handles its interactions with users
+-Assembly Language is a low level language and is more hardware specific, where as high level language can be used in the same way across multiple platforms
+*Special programs called compilers translates a high level language to a lower level language that the computer can understand.
+-The C language was created by Dennis Richie to blend the line between low-level languages and higher ones. C is therefore closely tied to the hardware,
+but also has the ability to create more complicated programs that could be used by other computers
+
+*Computer languages deal with 2 concepts: 1) Data-the info a program uses and processes & 2) Algorithms-the methods the program uses
+-C is a procedural language, meaning there is an emphasis on the algorithm side of programming.
+
+*A program consists of a set of procedures that the computer must follow in order to produce a particular outcome
+*Structured programming was introduced by C and utilized for loops, while loops, do while loops, and if-else statements to make the program easier to understand.
+
+1) This introduction of structure is what makes C a procedural language. TOP-DOWN design, break the program into smaller more manageable tasks.
+
+*Procedural programming emphasizes algorithms while OOP emphasizes data.
+
+2) OOP attempts to fit the language to the problem, to design data forms that correspond to the essential features of a problem. BOTTOM-UP, going from lower-level organizations(classes) to higher level (a program that incorporates all the classes)
+-A class is a specification describing such a new data form and the operations that can be performed on said data, and an object is a particular data structure constructed utilizing the plan developed in the class.
+*The class describes the attributes and the operations that can be performed on those attributes, while the object is a representation of those attributes. The object follows the class specifications.
+
+*OBJECTS ARE DEFINED BY CLASS THAT SPECIFIES IT.
+
+-OOP facilitates creating re-usable code.
+
+3) C++ and generic programming. This paradigm also seeks to make code easier to re-use, but instead of focusing on data like OOP, it focuses on algorithms.
+
+*Generic programming provides tools for performing common tasks, such as SORTING DATA or MERGING LISTS. Generic refers to create code that is type independent (works same for strings, int and all the other data types)
+
+-C++ is a superset of C. Any valid C program is also a valid C++ program.
+-LIBRARIES are collections of programming modules that you can call up from a program. C++ can use C libraries.
+
+*C++ is a great language because you can use it for high level abstraction using OOP concepts or low-level hardware access because of its close relation to C.
+*Templates were added later to C++ to enable generic programming.
+
+*A program is PORTABLE  if you can recompile and run it on another computer without making any changes.
+
+CREATING A PROGRAM
+1) Use a text editor to save your C++ program, this file or collection of files is your SOURCE CODE
+2) Compile source code using compiler that will translate source code to machine language in the form of OBJECT CODE, that can be read by your computer.
+3) Link object code with the additional code from LIBRARIES, the linked code is now your EXECUTABLE CODE.
+
+source code -> COMPILER -> object code -> LINKER (links object code, startup code & library code) -> executable code
+
+Compile C++ Code:
+g++ main.cpp -o main //-o allows you to create your own name for the executable file instead of the std a.out
+
+_________
+
+Chapter 2: Setting Out To C++
+-C++ is case-sensitive & spelling-sensitive in regards to key identifiers that are built into the language.
+
+Ex. Program: myfirst.cpp //.cpp is the extension for c++ files
+
+#include <iostream> //Preprocessor directive
+
+using namespace std; //allows you to use standard c++ definitions like the cout below
+
+int main() { //function header, brackets indicate the start of the function body
+
+cout << "Hello, my name is Rahul Vig"; //outputting a message using cout
+
+cout << endl; //endl or "\n" skips a line, we could have also concatenated the endl to the first cout above, simple put another <<endl; after the message above.
+
+return 0; //return statement to terminate main, if your program reaches this step it means that your program ran with no errors
+
+} //end of the function body
+
+-In order to use functions from C such as printf and scanf, you must include the #include <stdio.h> preprocessor directive
+-Each instruction in a program is known as a statement and must end with a semicolon.
+
+-Execution of a program always begins at the main() function and therefore, most programs require the main() function so that the computer knows where to start the program
+
+-single line comments are indicated with a //. For a multiline comment /* Insert as many comments as you like between these two comment brackets  */
+
+-A preproccesor is a program that processes a source file before the rest of the program is compiled. The directive of the preproccessor such as <iostream> ensures that the program adds the contents of iostream before the rest of the program is compiled.
+-.h is a C extension, C++ directives have no extension at the end.
+
+-if you omit the using namespace std; directive you can simply do something like
+std::cout<<"Hello" << std::endl;
+-The using keyword allows you to use definitions without inputting the prefix such as std:: before each usage of the definition.
+
+-An object is a particular instance of a class and a class defines how data is stored and used(the operations that can be performed on said data.
+-endl is known as a manipulator to cout
+-indivisible meaning whole elements in lines of code such as { main int , (comma) are all tokens. The white space is captured by spaces, tabs and empty lines caused by newlines
+
+-Good C++ style
+One statement per line
+Each opening and closing brace on its own line
+Statements in a function indented from the braces
+No whitespace around the parenthesis associated with a function name
+
+Keep your code and clean and simple as possible, with comments explaining function use and unclear statements.
+
+-A C++ program is a collection of functions and each function is a collection of statements.
+
+-A DECLARATION STATEMENT creates a variable, and an ASSIGNMENT STATEMENT assigns a value to the variable.
+Ex. Declaration: int carrot; //creates variable carrot, declares that the variable will use storage space of type int. 4 bytes.
+Assignment: carrot = 25; // assigns value to variable carrot.
+ALL VARIABLES MUST BE DECLARED BEFORE USE AND ASSIGNMENT
+= is the assignment operator
+
+assignment operators can be used sequentially and are read from right to left
+int x, y, z;
+x = y = z = 5 //5 assigned to z, z assigned to y, y assigned to x
+
+-In printf, %s allows you to replace the placeholder with a string.
+
+cout << //outputs value to console //part of the ostream class
+cin >> //takes input from user //part of the istream class
+
+-<fstream> // file I/O
+
+FUNCTIONS
+-A function that has a return value produces a value that you can assign to a variable.
+-Ex. the built in function sqrt(double x) returns a int that can be assigned to a variable.
+-Ex. x = sqrt(6.25) // This is valid because the return value of a function can be assigned to a variable
+-Any call to a function is called a function call
+
+double sqrt(double x) //function prototype, this is not the definition, it just simply defines the function interface
+
+double area;
+area = 45;
+double side = sqrt(area); //This declaration and assignment combination is known as INITIALIZATION
+
+Function Form:
+
+type functionname(parameterlist) //type can be void, meaning function returns nothing. parameter list can also be empty, it takes in no values
+{
+statements
+} //function definition
+
+-You cannot assign functions with void return types to any variable
+
+-main() return type of int is not returned to any part of the program, but it is returned to the OS indicating that the program has run with no errors if it is reached. A nonzero return value, indicates something went wrong in the program.
+
+-You can call a function within cout and you can perform arithmetic operations on functions that are being assigned to variables.
+Ex.cout<< sqrt(16);
+Ex. int big = 1 + sqrt(16);
+
+Functions have a:
+-header and body
+-ability to accept arguments given that parameters are defined in the prototype accordingly
+-ability to return a value given that the return type is not void
+-prototype requirement before usage.
+
+Summary:
+C++ Statement types:
+Declaration, Assignment, Message statement, Function call, Function prototype, Return statement.
+
+-A class is a user-defined specification for a data type
+
+_____
+Chapter 3: Dealing with Data
+-Built in C++ types come in two groups:
+1) fundamental types (int, char, bool, float, double)
+2) compound types (arrays, strings, pointers, structures)
+
+To store information, a computer must know:
+1) where the info is stored
+2) what value is kept there
+3) what kind of info is stored
+
+-You can use the & before the variable name to find out where in memory the variable is stored. This is known as the reference operator.
+
+-Good programming practice to name variables in a way where they can identify what purpose they serve or what information they represent. Good to use camelCase when naming variables
+
+Integer types:
+1)short - 2 bytes
+2)int - 4 bytes
+3)long - 8 bytes
+
+sizeof(data type or variable name) will give you the size in bytes of the type or variable
+
+-The <climits> directive contains functions that allow you to determine the limits of integer types.
+-This directive contains INT_MAX which will give you max limit of int, & CHAR_BIT which gives you number of bits in a byte
+
+-There are two ways to assign values to variables
+int x = 5;
+int x(5); // both assign the value 5 to x
+
+-Use unsigned types to double the max possible value of a numerical data type
+
+-These different data types and their respective limits allow you to choose specific data types for the data you want to represent. KNOW these limits and compare to your data so you can choose data types accordingly.
+
+-You can assign hex & octal values to variables.
+For octal, simply put a 0 before the the next digits
+For hex, simply put a 0x before the rest of the digits
+
+-You can also display any value in hex & octal formats (dec. is the default output format for cout)
+To do this, simply do:
+cout << hex;
+cout << oct; right before you do the cout to display the value you want.
+-Make sure to include their usage using namespace std; or std::hex; or std::oct
+
+ -By default C++ stores integer constants as ints
+Ex. cout << 1492; is stored as an int, this is the default behavior unless specified
+To change the format that the constant is stored, put a suffix at the end of the constant.
+-For example cout << 1392223L; will now store the number as a long
+
+-For char values they are stored as numerical values within the memory according to their corresponding ASCII values
+-cout has a special feature that allows you to display a char constant
+Input:
+cout << "Display: ";
+cout.put('N');
+
+Output:
+Display: N
+
+The .put() above represents a member function, which belongs to a class and describes a method for manipulating class data.
+
+-C++ has special notations called escape sequence that begin with \, these have the ability to bypass delimiters such as the string delimiter " "
+Ex. '\a' will cause your console to make a beep.
+Ex. cout << endl;
+    cout << '\n'
+    cout << "\n" //All of these do the same thing
+
+-Use universal character names in conjunction with the escape sequence \ to display special characters such as chars unique to other languages.
+
+-Use wchar_t to represent chars that exceed the 0-255 range of the ASCII set. You can display this wide character format using wcin or wcout as these handle wchar_t streams, you also indicate this format by preceding it with an L
+Ex. wchar_t bob = L'P'; // a wide char constant
+    wcout << L"tall" << endl; //outputting a wide character string
+
+The Bool type has two values: true or false
+ex. bool ans = true;
+
+The const Qualifier, once a variable is declared as const in your program it cannot be changed by any function or method or algorithm. Its value remains fixed.
+ex. const int MONTHS = 12; // Note that it is good practice to capitalize all letters of the const variable.
+
+const variables MUST be initialized immediately.
+ex. const int toes; //This in invalid bc the value of toes is unitialized.
+toes = 10; // too late to give it a value.
+
+-Use floating point numbers (or double for larger representation) to represent decimals.
+You can also use e/E notation to represent fp numbers.
+Ex.
+2.52e+8
+8.33E-4
+7E5
+9.11e-31 //These are all valid syntax and can be interpreted by the compiler.
+
+Floating point constants
+1.234f   //a float constant
+2.3323F  //a float constant
+2.2L     //a long double constant
+
+Advantages & Disadvantages of FP numbers
+Advant. 1) Can represent values between ints 2)They can represent a much greater range of values
+Disad. 1) fp operations are slower than integer operations 2)fp numbers can lose precision
+
+C++ Arithmetic Operators
++ for additon
+- for subtraction
+* for multiplication
+/ for division
+% for modulo
+
+For division:
+
+int/int performs int division
+long/long performs long division
+double/double performs double division
+float/float performs float division
+
+*The mod operator returns the remainder of int division.
+
+*Use type casting to convert from one data type to another.
+
+Ex. int thorn = 56;
+long x = long (thorn); //this will convert the int value in thorn to a long value.
+
+Another ex.
+cout << int('Q'); //this will print out the ASCII integer value of Q
+
+Syntax for type casting:
+(typeName) value; OR
+typeName (value) // this one is better as it is the newer C++ standard.
+
+__________
+
+Chapter 4: Compound types
+
+ARRAYS
+-an array is a data form that can hold several values, all of one type.
+Ex. array can hold n different int values, but they must all be of type int.
+
+To create an Array: Its declaration should indicate 3 things
+1) The type of value to be stored in each element
+2) The name of the array
+3) The number of elements in the array.
+
+Ex. int months[12]; //creates an array called months with the potential space for 12 ints.
+
+Array form: typeName arrayName[arraySize];
+
+-To get number of elements in an array do: sizeof(arrayName)/sizeof(arrayType OR typeName)
+
+-Usefulness of arrays comes from the ability to access the elements of the array using a subscript or index. ARRAYS start at index 0
+
+Ex. of array initialization
+
+int grades[5] = {3, 4, 5, 5, 5}; //don't need size if you initialize on same line, don't need to initialize all the possible elements. Compiler will fill them in with 0's
+
+STRINGS
+-A string is a series of characters stored in consecutive bytes of memory.
+-The last character of every string is the \0 (null character), signifies the end of the string
+
+char dog[5] = {'f', 'i'}; // not a string
+char dog[5] = {'f', 'i', '\0'}; //a string!
+
+Best way to initialize character array to a string is to just use a string constant/string literal.
+Ex. char bird[10] = "Mr. Cheeps";
+char fish[] = "bubbly"; //best way to initialize char array to string. Use the double quotes instead of single.
+
+Ex. char boss[8] = "Bozo"; will create an array of size 8 with '\0' filling up the remaining memory.
+
+#include <cstring> //to utilize the strlen() function
+
+sizeof(arrayName) //gives size of array in bytes.
+
+***cin >> only reads one line at a time. BUT we don't' always want this so we use getline() and get() functions in the istream class
+
+EX: cin.getline(varName, varSize); // allows you to input chars up to the varSize limit of varSize -1 as \0 takes up the last element space.
+
+Can also do cin.get(varName, varSize).get().get(varName2, varSize); //this concatenates your input statement into one line, but can still read in two seperate values. //can do the same with getline()
+
+//Can use either getline() or get(), but get() requires you to have an addition get() w/o arguments to tell the compiler to read a new line.
+
+In short, getline() is simpler to use, but get() allows you to be more careful and makes error checking more simple.
+
+THE STRING CLASS:
+
+-Use an instance of cin.get() with no parameters to get a combination of ints and strings to work when taking in input
+-The string class was added so that now one could avoid using character arrays to represent strings.
+-To use string must include #include <string> && std::string;
+-You can use array notation to access a specific letter/element in a string.
+
+string str = "hello"; //to access second element str[1];
+
+-This class design of string allows the program to handle sizing automatically. (Dynamic allocation)
+
+STRING ASSIGNMENT,CONCATENATION, & APPENDING
+-You cannot assign an array to another, BUT you can assign a string to another string object!
+char arr[20];
+char arr2[20] = {'h', 'e'};
+arr = arr2; //this is INVALID
+
+string cat;
+string catName = "tiger";
+cat = catName; //VALID
+
+Concatenation: you can also use the + operator to combine two strings
+-Used to use strcpy() & strcat() functions to copy one string to another and to concatenate two strings. //needed to include <cstring> library
+
+A METHOD is a function that can be invoked only by an object belonging to the same class as the method
+
+-Code to read a line into an character array: cin.getline(chArray, 20)// the 20 represents the capacity of the possible input. Part of istream class
+
+-Code to read a line into a string object: getline(cin, strName); //Note size doesn't matter here, you can enter whatever length you want for the string you are trying to input. This getline() is not a class method. (Not part of istream class)
+
+INTRODUCING STRUCTURES
+-Since arrays can only hold several objects of the same type, we need another data form to contain several objects of different data types. This is where the structure comes in handy.
+
+-A structure is a more versatile data type than an array because a single structure can hold items of more than one data type.
+-A structure is a user definable type with a structure declaration serving to define the types data properties.
+
+Structure creation:
+
+struct application //structure declaration
+{
+  char name[20]; //Each of the following items is called a structure member
+  float volume;
+  double price; //This structure then has 3 members.
+
+}; //Note structure declarations end in a semi colon.
+
+Using the above template, we can create variables of the type structure.
+application x; //all variables of type application which is generated by the structure.
+application hat;
+
+We can use the dot operator to access members of the struct and set their values.
+x.name = {'j', 'o', 'e'};
+x.price = 5.32;
+x.volume = 43.22;
+
+CAN ALSO DO:
+
+application conway =
+{
+      "Geo",
+      1.88,
+      29.99
+}; //Another way of initializing an object of type struct.
+
+OR you can have it all on one line
+
+application conway = {"Geo", 1.88, 29.99}; //follows the array format
+
+*Good to note that a structure can be declare before the main() function and outside every other function in a program, or it can be declared within a function. The difference is the matter of scope. The external declaration can be used by all functions in a program as it is exposed and is public in scope.
+
+***You can pass structures as arguments to a function, and you can have a function use a structure as a return value
+***Can also use assignment operator = to assign one structure to another.
+
+CAN ALSO:
+
+struct
+{
+    int x;
+    int y;
+} position; //Don't need to name structure if you declare a variable before the structure declaration ends at the semicolon.
+
+Can simply do: position.x & position.y now to access those members of the struct.
+
+ARRAYS OF STRUCTURES
+-You can create arrays where the elements are structures. Adding to the prev. examples
+
+application apps[100]; //This creates an array of 100 application structures.
+Can do app[0].volume = 34.23; this will initialize the volume member of the application struct of the first element in the array of application structs
+
+Unions differ from structs in the sense that the user can initialize and use only one of the data types at a time, if another data type from the union is initialized, then the data from the first usage will be lost:
+
+Union format:
+union one4all
+{
+    int int_val;
+    double dub_val;
+};
+
+one4all pail;
+pail.int_val = 3;
+pail.dub_vale = 2.3; //After this initialization int value from prev. init. is lost.
+
+The size of a union is the size of its largest member.
+
+ENUMERATIONS
+-enum provides an alternative to const for creating symbolic constants. It also lets you define new types
+Ex.
+
+enum spectrum {red, blue, green}; //spectrum is the name of the new type. spectrum is the enumeration, much like the name of a struct is the identifier for it.
+The constants 0-2 represent the colors above and are known as the enumerators.
+
+Ex.
+spectrum color; //this creates a variable of type spectrum defined by the enumeration above. You can only assign the values defined to this variable
+color = blue; //this is a valid statement, color can only be assigned red, blue and green as defined by the enum
+
+Only the assignment operator is defined for enumerations.
+Enumerations are of the int type and can be promoted to type int, but NOT vice versa.
+Ex.
+int color = blue; //This is valid
+spectrum band = 3; //This is invalid.
+band = 1 + red; //this is also valid, promotes this variable to type int
+
+band = spectrum(2); // this is a valid case of type casting 2 to type spectrum. This is valid as long as there is a corresponding enum val. to the typecasted int.
+
+YOU can also set enumerator values within their declarations.
+Ex.
+enum bits{one = 1, two = 2, four = 4, eight = 8};
+
+OR you can do it explicitly
+
+enum big {one, sec = 100, third}; //one will have the default value of 0, sec will be 100 and third will take on the value 101.
+
+CAN also have each constant = to the same value;
+
+enum test{zero, j = 0, k = 0, l = 1}; // the first three values all are 0.
+__
+POINTERS AND THE FREE STORE
+-Recall that in order to store data a computer must keep track of 3 things:
+
+1)Where the information is stored
+2)What value is kept in that location
+3)What kind of information is stored
+
+POINTERS - variables that store addresses of values rather than the values themselves.
+
+Alternative to find address is to use the address operator &.
+If you have var. home, to access it's' address you must use &home to get the location in memory where this value is stored.
+
+Pointers are essential to C++ programming philosophy of memory management.
+
+Since pointers point to and represent the address of a variable, to get the actual value using a pointer, you must use a dereference operator *.
+
+    int x = 15;
+Ex. int* ptr = &x; //This declares a pointer to an int value and we initialize the pointer to the address of x. In order to get the value of x using the ptr. Simply:
+    cout << *ptr; //this will output 15
+
+You can also use the pointer to change the value of the var. being pointed to.
+
+  *ptr + 1; //This will change the value of *ptr and x to 16.
+
+THEREFORE
+
+x and *ptr are the same AND &x and ptr are the same.
+
+
+int* ptr; means that the variable ptr is a pointer to an int.
+ptr is the pointer and *ptr is the value.
+
+BEWARE!!!! int* p1, p2; //THIS will create one pointer to int p1 & one int value p2; YOU need a * for each pointer variable name.
+CORRECT FORMAT int *p1, *p2; //This will create 2 pointer to int variables.
+
+REMEMBER: Pointers can also point to other data types besides int!
+
+POINTERS THEMSELVES ARE THE SAME SIZE!!!!!!!!!!
+
+BEWARE!!!!!!!!!!! Pointers must point to an address of an already initialized value!
+EX. long* fellow; //Create pointer to a long. VALID
+*fellow = 2231; //THIS IS WRONG BECAUSE fellow does not actually point to anything and thus this value initialization exists no where in memory.
+//The code failed to give an address to fellow.
+
+**GOLDEN RULE: ALWAYS INITIALIZE A POINTER TO A DEFINITE AND APPROPRIATE ADDRESS BEFORE YOU APPLY THE DEREFERENCE OPERATOR.**
+
+To point to a specific location in memory:
+int* pt;
+pt = (int*) 0xB80000; // YOU MUST TYPECAST otherwise compiler will interpret the assignment as an int value being assigned to a pointer.
+
+
+ALLOCATING MEMORY WITH new
+-Used to allocate memory in C using malloc(), but C++ has the new operator.
+Ex.
+
+int* ptr = new int; //this new finds and assigns ptr an address in memory that is free. new uses the type to figure out how many bytes in mem. to allocate.
+Bec. ptr doesn't' refer to another variable or point to the location of another variable we say that ptr points to a data object.
+
+When the computer doesn't' have sufficient memory to allocate using new, new returns 0; //This 0 is called the null ptr because it points to nothing.
+
+FREEING MEMORY WITH DELETE:
+|new| MUST be accompanied by |delete|. This delete allows you to return memory to the computer when you're' finished with it.
+
+Ex. int* ptr = new int; //allocate memory with new.
+... //use the memory
+delete ptr; //free memory with delete once you are done.
+
+This removes the memory to which ptr points, but it doesn't' delete the pointer itself. If each allocation using new isn't' followed with a delete, you could end up with a MEMORY LEAK.
+
+int* p = new int; //ok
+delete p; //ok
+delete p; //Not ok, you already freed up the space
+
+int j = 5;
+int* pa = &j;
+delete pa; //NOT okay, memory was not allocated using new
+
+Therefore you should use delete only to free memory that has been allocated with new.
+
+USING new TO CREATE DYNAMIC ARRAYS
+Allocating an array during compile time is called STATIC BINDING
+W/ new you can create an array during runtime. This is called DYNAMIC BINDING, the array is created while the program is running
+EX.
+
+int* psome = new int[10]; //allocates a block of 10 ints. psome is now a pointer to an array of ints and it points to the first element by default. *psome is automatically the same value as the first element, you must manually change the element the pointer points to.
+This dynamic allocation must be followed with:
+ delete[] psome; //this frees the dynamic array at the end of your program.
+
+
+RULES:
+1) Don't' use delete to free mem. that new didn't' allocate
+2) Don't' use delete to free mem. that has already been deleted unless it was allocated with new again
+3) Use delete[] if you used new[]
+4) Use delete if you used new
+5) You can safely delete a null ptr (Nothing happens)
+
+Arrays and pointers have an equivalence relation
+
+int* p = new int[3]; //allocate space for 3 ints
+p[0] = 1;
+p[1] = 2;
+p[2] = 3; // Assign values to the pointer just like you would a regular array
+
+p += 1; //This will now make p point to the second element in the array : p[1]
+
+POINTERS, ARRAYS & POINTER ARITHMETIC
+*Adding one to an int, increases its value by 1, but adding 1 to a ptr variable increases its value by the number of bytes of the type to which it points.
+*Remember the name of an array is an address so both of the following are valid;
+
+int x[2] = {1, 2};
+int y[2] = {3, 5};
+
+int* xp = x;//x points to the first element of the array by default
+int* yp = &y[0] //Both are valid syntax when assigning arrays to pointers.
+
+x[1] is the same as *(xp + 1)
+x[0] is the same as *xp;
+
+In general
+
+array/ptrName[i] is the same as *(array/ptrName + i)
+
+sizeof(ptr) is always the size of the pointer and never the array it points to.
+
+POINTER SUMMARY
+1) ptr declaration: typeName* ptrName; //*Note you must assign to the ptr the address of another value using &, the name of an array OR dynamically allocate using new operator
+2) array names: int tacos[10]; //Now tacos is the same as &tacos[0]. This is bec. arrays and pointers have an equivalence relationship.
+3) sizeof(array) will return size of entire array. sizeof(pointer) will return size of pointer.
+
+4)Dynamic Binding:
+int size;
+cin >> size;
+int* ptr = new int[size]; //This is how you dynamically allocate an array
+...
+delete[] ptr; //Don't forget to free memory when you are finished.
+
+5)Pointer arithmetic: When you add 1 to a ptr that points to an array of elements, you move to the next element, but you move to the block in memory of the next element and that depends on the type of element.
+
+6) x[0] is the same thing as *xp & x[1] is the same thing as *(xp + 1)
+
+POINTERS & STRINGS
+-W/ cout and most c++ expression, the name of an array of char, a pointer to char, and a quoted string constant are all interpreted as the address of the first character of the string.
+
+NORMALLY if you give cout a pointer, it prints an address. But if the pointer is type char* cout displays the pointed to string. If you want to see the address of the string, you have to type cast the pointer to another pointer type such as (int*)
+
+*Use strcopy() or strncopy(), not the assignment operator to assign a string into an array. This was the case for C
+
+USING new TO CREATE DYNAMIC STRUCTURES AND CLASSES
+-Dynamic meaning memory allocated during runtime and not compiletime.
+-To access members of structures using pointers you must use -> instead of .
+
+Ex.
+struct things
+{
+  int good;
+  int bad;
+};
+
+things x = {3, 4}; //set mem. vars good and bad to 3 and 4 respectively
+things* px = &x; //
+
+x.good, x.bad //use dot operator with structure name
+px->good, px->bad //use -> operator with pointer to structure
+(*px).good, (*px).bad //this is also valid, albeit ugly syntax
+
+Know when to use . & -> The rule is simple:
+If struct identifier is the name of struct use . operator
+if identifier is ptr to struct use -> operator.
+
+things* poop = new things; //dynamic struct allocation
+
+newstruct.cpp
+
+//newstruct.cpp using new with a struct
+
+#include <iostream>
+using namespace std;
+
+struct application
+{
+  char name[20];
+  float volume;
+  double price;
+};
+
+int main(){
+ application* ptr = new application; //allot mem for struct.
+ cout<< "Enter name of application: ";
+ cin.get(ptr->name, 20); //read in the mem. var name of size 20
+ cin >> (*ptr).volume;
+ cin >> ptr->price;
+
+ delete ptr;
+ return 0;
+}
+
+*DELETE MEMORY OF PTRS BEFORE YOU USE THEM AGAIN
+*IT IS POSSIBLE TO HAVE NEW AND DELETE IN SEPARATE FUNCTIONS. KEEP TRACK OF THEM
+
+__
+
+AUTOMATIC STORAGE, STATIC STORAGE & DYNAMIC STORAGE
+-C++ has 3 ways of managing memory for data, depending on the method used to allocate memory: automatic storage, static storage, and dynamic storage(free store or heap)
+-Data objects allocated in these three ways differ from each other in how long they remain in existence.
+
+Automatic Storage: ordinary vars. defined inside a function use this storage. Called automatic variables. These vars. come into existence automatically when the function containing them is invoked and they expire when the function terminates
+Automatic vars. are local to the block { } that contains them.
+
+Static Storage: Storage that exists throughout the execution of a program. Ex. static int fee = 5;
+
+Dynamic Storage: Using the new and delete operators to manage storage at runtime. new and delete enable you to allocate memory in one function and free it in another. Gives you much more control.
+
+Avoid memory leaks by immediately following each new allocation with a delete.
+
+SUMMARY:
+
+*USE POINTERS FOR DYNAMIC ALLOCATION
+
+struct fish;
+
+fish* poe = new fish;
+
+int* x = new int[4]; //dynamically allocates space for an array of 4 ints.
+
+-Arrays, structures and pointers are all compound types.
+-An array can hold several objects all of the same type
+-A structure can hold several values of different types in a single data object. You can use membership(dot).operator to access individual members.
+-A union can hold a single value, but it can be a variety of different types, with the member name indicating which mode is being used.
+-Pointers are variables designed to hold addresses. We say a pointer points to the address it holds. The ptr declaration always states to what type of object a pointer points. Applying the * dereferencing operator to a pointer yields the value at the address to which the ptr points.
+-A string is a series of characters terminated by a null character \0
+-new operator allows you to request memory while the program is running. The operator returns the address of the memory it obtains. You can only access this memory using a ptr. If the data object is a simple variable you can use the *dereference operator to assign it a value, if it is an array you can use the ptr as if it were an array name to access the elements/assign values. If it is a structure/class you can use the ptr-dereference operator (->) to access structure members.
+
+________________________________________________________________________________________________________________________________________________________________
+
+Chapter 5: Loops & Relational Expressions
+INTRODUCING for LOOPS
+-Programs sometimes require the need for repetitive tasks, such as adding together the elements of an array one by one
+
+Ex. of for loop in use:
+
+for (int i = 0; i < 5; ++i){ //can use --i to decrement i
+  cout << "Hello\n";
+} //This will display the text Hello 5 times
+
+Form:
+
+for (initialization; test-expression; update-expression){
+  //loop body
+}
+
+-By default c++ sets bool values to ints, 0 (false) && 1 (true), so in order to change the way your program displays these bool values into true and false:
+Put the following before your cout that displays your bool variables.
+cout.setf(ios::boolalpha); //Now your program can output true and false as values instead of 0 & 1
+
+Factorial program: This program calculates the factorial of the first 15 digits.
+
+#include <iostream>
+using namespace std;
+
+const int arSize = 16;
+
+int main(){
+  double factorial[arSize];
+  factorial[1] = factorial[0] = 1.0;
+
+  for (int i = 2; i < arSize; i++){
+    factorial[i] = i * factorial[i-1];
+  }
+
+  for (int i = 0; i < arSize; i++){
+    cout<<"Factorial[" << i << "] = " << factorial[i] << endl;
+  }
+
+  return 0;
+}
+
+Program to Reverse a String:
+
+#include <iostream>
+#include <string>
+
+int main(){
+  cout<< "Enter your string: ";
+  string s;
+  cin >> s; //OR cin.getline(s, 100);
+
+  for(int i = s.size() -1; i >= 0; i--){ //--i is a little bit faster
+    cout<<s[i];
+  }
+
+  return 0;
+} //End program
+
+++ && --:
+++x // prefix operator, increments then evaluates
+x++ //postfix operator, evaluates expression then increments
+
+int x = 5;
+int y = ++x; //y is 6 and x is 6
+
+int x = 5;
+int y = x++; //y is 5 and x is 6 by the end of the statement
+
+-A side effect is an effect that occurs when evaluating an expression modifies something.
+-A sequence point is a point in program execution at which all side effects are guaranteed to be evaluated before going on to the next step.
+
+THE INCREMENT/DECREMENT OPERATORS & POINTERS
+int arr[3] = {0, 1, 2};
+int *p = arr; //p points to arr[0], to 0
+++p; //p points to arr[1], to 1. This prefix increment changes the address of p to point to the second element in the array
+
+*++p //Will increment the pointers address to the next element, then the dereferencer will get the value at the new location being pointed to
+++*p //Means get the value at the location p points to and increment the VALUE
+
+So these expressions are  evaluated right to left
+
+*p++ //this is a little confusing, but know that first the address of p is incremented to point to the next element, but since it is postfix the value that gets 1 added to it is the original value that p pointed to.
+
+i = i + 1; is EQUIVALENT i += 1;
+
+Combined Assignment Operators: Evaluated L to R and saved into L
+
++=
+-=
+*=
+/=
+%=
+
+____
+
+THE COMMA OPERATOR
+Can use comma to have more than one expression in for loop.
+Ex.
+
+for(int i = 0, j = 10; i < j; ++i, --j){
+
+}
+
+Another way of reversing a string:
+
+int main(){
+  string s = "Hello";
+  char temp;
+  int i, j;
+
+  for(i = 0; j = s.size()-1; i < j; i++, j--){
+    temp = s[j];
+    s[j] = s[i];
+    s[i] = temp;
+  }
+  cout << s;
+}
+
+RELATIONAL EXPRESSIONS
+Operator:
+
+< - Less than
+<= - Less than or equal
+== - Equal
+> - Greater
+>= - Greater than or equal
+!= - Not equal
+
+Relational operators have lower precedence than arithmetic operators:
+1 + y < x +3 evaluates like (1+y) < (x+3)
+
+musicians == 4; // comparison
+musicians = 4; //assignment
+
+Comparing C-Style Strings
+-Use strcmp() to compare strings. This function takes two string addresses as arguments. The arguments can be pointers, string constants, or character array names. If the two strings are identical, the function returns 0; If the first string precedes the second string alphabetically the function returns a negative and vice versa the function returns positive.
+***Upper case precedes lower case.
+"Zoo" precedes "avian"
+
+In C two strings can be identical even if they are stored in arrays of different sizes.
+
+Program: Comparing strings using arrays
+
+#include <iostream>
+#include <cstring> //prototype for strcmp()
+using namespace std;
+
+int main(){
+  char word[5] = "?ate";
+
+  for (char ch = 'a'; strcmp(word, "mate"); ch++){ //evaluate true if not equal strings, and false when they are equal.
+    cout << word << end;
+    word[0] = ch;
+  }
+
+  cout << word << end;
+} //The condition is satisfied when the strcmp returns 0; The strings will be identical at that point and the loop ends.
+
+Comparing string Class Strings
+#include <iostream>
+#include <cstring> //prototype for strcmp()
+using namespace std;
+
+int main(){
+  string word = "?ate";
+
+  for (char ch = 'a'; word != "mate"; ch++){ //evaluate true if not equal strings, and false when they are equal.
+    cout << word << end;
+    word[0] = ch;
+  }
+
+  cout << word << end;
+} //This does the same thing as our program above, but is much much simpler.
+
+The while Loop
+-The while loop is a for loop stripped of the initialization and update parts; it has just a test consition and a body:
+
+  while(test-condition){ //The code in while loop block lasts until the condition is evaluated as false
+    //body
+  } //Will never execute if the test-condition is false to begin with.
+
+
+while.cpp // introducing the while loop
+#include <iostream>
+
+const int arSize = 20;
+using namespace std;
+
+int main(){
+  char name[arSize];
+  cout << "Your name please: ";
+  cin >> name;
+  cout <<"Here is your name verticalized and ASCIIized:\n";
+  int i = 0;
+  while (name[i] != '\0') //Since all strings have the null character, this is a good evaluating condition to see if your strings end has been reached
+  {
+    cout << name[i] << ": " << int(name[i]) << endl;
+    i++;
+  }
+  return 0;
+}
+
+Output:
+
+Your name please: Rahul
+Here is you name verticalized and ASCIIized:
+R: 77
+a: 117
+h: 102
+u: 102
+l: 121 //Wrong ascii values, just to lazy to look them up
+
+In C++ the for loop and while loop are essentially equivalent. For example, this for loop:
+
+for(init-expression; test-expression; update-expression){
+  statements
+}
+
+could be re-written as
+
+init-expression
+while(test-expression){
+  statements
+  update-expression
+}
+
+SIMILARILY, this while loop:
+
+while(test-expression){
+  body
+}
+
+can be rewritten this way:
+
+for(; test-expression;){
+  body
+}
+
+for (; ;){
+  body
+} //this loop will run forever
+
+In practice, programmers use for loops for counting loops and the while loop when the number of execution steps is not known
+
+Building a Time-Delay Loop
+long wait = 0;
+while (wait < 100000){
+  wait++
+} //Now your program will delay for sometime until it has reached a condition that terminates the while loop
+//This approach is faulty because it depends on the computers processor speed.
+
+<ctime> prototype allows you to keep track of time and create more accurate delays.
+
+Using the <ctime> header to create a delay:
+waiting.cpp
+
+#include <iostream>
+#include <ctime> //describes clock() function, clock_t type
+
+int main(){
+  using namespace std;
+  cout << "Enter the delay time, in seconds: ";
+  float secs;
+  cin >> secs;
+  clock_t delay = secs * CLOCKS_PER_SEC; //convert to clock ticks
+  cout << "starting\a\n";
+  clock_t start = clock();
+  while(clock() - start < delay)
+    ;
+  cout << "done \a\n";
+  return 0;
+}
+
+**You can make type aliases: other ways to name the type
+Ex. typedef char byte; //makes byte an alias for char.
+
+typedef typeName aliasName;
+
+typedef char* byte_pointer; //pointer to char-type
+
+The do while Loop:
+It is different from for and while because it is an exit condition loop rather than an entry-condition loop.
+The do-while ensures that the loop body will execute at least once.
+
+do{
+  body
+} while (test-expression);
+
+Good to use when you want to input something until it matches what you want.
+
+One of the most important tasks assigned to loops: Reading text character by character from a file or from the keyboard
+
+-By default cin will omit spaces and newline characters when outputted, to further complicate things cin is buffered meaning the characters you type don't' get sent to the program until you hit enter.
+
+cin.get(ch) will read each character even if it is a space, from the input and will assign it to the variable ch.
+
+#include <iostream>
+
+int main(){
+  using namespace std;
+  char ch;
+  int count = 0;
+
+  cout<< "Enter characters; enter # to quit: \n";
+  cin.get(ch);
+  while(ch != '#')
+  {
+    cout << ch;
+    ++count;
+    cin.get(ch);
+  }
+  cout << count << endl; //now this program will count spaces and chars alike :)
+  return 0;
+}
+
+C++ allows for function overloading, meaning you can have multiple functions with the same name, but all have different outputs depending on the arguments passed in.
+
+THE END-OF-FILE Condition
+-If your input comes from a file, you can use a much more powerful technique to detect that the end of file has been reached.
+
+Many OS's' including Unix and MS-DOS support redirection, which enables you to substitute a file for keyboard input. For example you can give a program by the name of gofish.exe an input such as fishtale
+
+gofish <fishtale //Causes program to take input from fishtale file instead of the keyboard. This is a case of redirection.
+
+*When cin detects the EOF, it sets two bits (the eofbit and the failbit) to 1.
+-You can use a member function name eof() to see whether the eofbit has been set; then call cin.eof() and if it returns true, then EOF has been detected.
+
+EOF ends input
+
+The following is the essential design of a loop intended to read text a character at a time until EOF
+
+cin.get(ch); //attempt to read a char
+
+while(cin.fail() == false) //test for EOF OR while(!cin.fail())
+{
+  ... // do stuff
+  cin.get(ch); //attempt to read another char
+}
+
+
+Nested Loops & Two Dimensional Arrays
+-To create Multidimensional arrays, you must utilize nested for loops.
+
+2D Array:
+int cityTemps[4][5]; //this creates a 4 * 5 table, 4 rows and 5 columns
+
+Nested for Loop:
+for (int row = 0; row < 4; row++){
+  for(int col = 0; col < 5; col++){
+    cout<< cityTemps[row][col] << "\t";
+  }
+}
+
+Initializing a 2D Array:
+
+int cityTemps[4][5]; = //2D Array
+{
+  {99, 99, 99, 99, 99}, //cityTemps[0][0-4]
+  {100, 100, 100, 100, 100}, //cityTemps[1][0-4]
+  {30, 30, 30, 30, 30}, //cityTemps[2][0-4]
+  {40, 40, 40, 40, 40} //cityTemps[3][0-4]
+};
+
+SUMMARY:
+-C++ has for loops, while loops, do while loops. A loop cycles through the same set of instructions repetitively. Loop terminates if it evaluates to false or 0 and continues if true or 1
+-Relational expressions compare expressions and evaluate to true or false < > <= >= == !=
+-Can do cin.get(ch) or ch = cin.get() to read text input text files char by char
+-Use nested loops for 2D arrays.
+
+_______________
+
+Before we go on to chapter 6:
+Know how to make variable sized arrays:
+
+int size;
+cin >> size;
+int** a = new int*[size]; //this creates an array of pointers that point to integer arrays.
+
+The entire code below is from HackerRank Ex. Variable Sized Arrays
+
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char *argv[]) {
+    int n;
+    int q;
+    cin >> n >> q;
+
+    // Create an array of pointers to integer arrays
+    // (i.e., an array of variable-length arrays)
+    int** outer = new int*[n];
+
+    // Fill each index of 'outer' with a variable-length array
+    for(int i = 0; i < n; i++) {
+        int k;
+        cin >> k;
+        // Create an array of length 'k' at index 'i'
+        outer[i] = new int[k];
+
+        // Fill each cell in the 'inner' variable-length array
+        for(int j = 0; j < k; j++) {
+            cin >> outer[i][j];
+        }
+    }
+
+    // Perform queries:
+    while(q-- > 0) {
+        int outer_index;
+        int inner_index;
+        cin >> outer_index >> inner_index;
+
+        // Find the variable-length array located at outer_index
+        // and print the value of the element at inner_index.
+        cout << outer[outer_index][inner_index] << endl;
+    }
+
+    return 0;
+}
+
+____________________________________________________________________________________
+Chapter 6: Branching Statements and Logical Operators
+-C++ provides if and switch statements to implement decisions
+
+The if Statement:
+-Useful when the program needs to make a choice.
+-3 forms: if & if else & if else if else. All three can be nested within each other.
+-Syntax is similar to while:
+
+if (test-condition){
+	statements;
+}
+
+if.cpp
+//using the if statement to count the number of spaces in a user inputted string.
+
+#include <iostream>
+
+using namespace std;
+int main(){
+	char ch;
+	int space = 0;
+	int totChar = 0;
+
+	cin.get(ch);
+	while( ch != '.'){
+		if(ch == ' '{
+		++space;
+		}
+	++totChar;
+	cin.get(ch);
+	}
+	cout << spaces << totChar; //This will print the total number of spaces and total number of characters including spaces
+
+}
+
+The if-else Statement:
+-Lets program decide which of two statements is executed. If if statement is false, the code in else brackets is executed.
+-Syntax:
+
+if(test-condition){ //if this is true, statement1 is executed and statement2 gets skipped
+	statement1;
+} else {
+	statement2; //if test-condition false, the else statement gets executed
+}
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+char ch;
+cout << "Type and I shall repeat.\n";
+cin.get(ch);
+while( ch != '.'){
+    if (ch == '\n'){
+        cout << ch;
+    }
+    else {
+        cout << ++ch;
+    }
+    cin.get(ch);
+}
+
+return 0;
+} //This program scrambles your input, but leaves each newline unchanged. The program ends when '.' is entered. Note for each letter you input, the program outputs the letter after it. Hence the scrambling.
+//If you change ++ch to ch + 1, the output will spit out corresponding ASCII number's + 1;
+
+-Again to have more than one statement in an if-else block, you must use brackets.
+
+-Bec. C++ is a free form languages, you can place the brackets whereever as long as they match and are paired correctly.
+
+-The entire if-else if-else counts as one statement
+
+	if (test-cond1){
+
+	} else if (test-cond2){
+
+	} else {
+
+	}
+
+Logical Expressions:
+
+&&, ||, ! //These allow you combine test-expressions
+
+if ((a || b) && !(a || c)) //Will only evaluate to true if a && c are false but b is true.
+
+-Logical Operators act as sequence points, so any postfix/prefix operators such as ++x or x++ get evaluated before the next expression is evaluated
+-The comma operator is also a sequence point.
+
+SEQUENCE POINTS act as points in the program where all expressions are evaluated before the code moves on to the next sequence in the program.
+
+-Use && Logical operator for Ranges.
+
+The Logical Not Operator !
+-This Logical operator reverses the truth value of an expression.
+
+if( !(x<5)) is equivalent to if (x >= 5)
+
+**strcmp(s1,s2) returns true or nonzero if the strings are NOT equal and 0 false if the strings are equal.
+--You can use the ! operator to reverse this functions truth values.
+
+!strcmp(s1,s2) -- evaluates to true if they are equal instead of false
+
+-Relational operators have higher precedence than logical operators.
+
+x < y && x > z interpreted as (x < y) && (x > z)
+
+! operator has higher precedence than any relational operators or arithmetic operators.
+
+-Safest bet to ensure precedence doesnt affect what you wanted is to manually encompass your expressions in parenthesis.
+
+Alternate reps. of Logical operators
+&& - and
+|| - or
+! - not
+
+C++ has inherited <cctype> header file which includes many useful character functions.
+Ex. isalpha(ch) returns nonzero if ch is a letter and 0 if not. Instead of ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+ispunct(ch) returns nonzero if punct char and 0 if not.
+isdigit(ch) returns true if digit
+isspace(ch) returns true if space
+
+LOOK AT TABLE 6.4 Page 249 in C++ Primer for list of cctype functions.
+
+
+-The conditional operator ?:
+General form: exp1 ? exp2 : exp3 //if exp1 evaluates to true, exp2 else exp3
+
+The Switch Statement:
+
+switch(condition/expression/possible case value)
+{
+case label1 : statement(s) break; //Depending on the initial value of the entering condition, each specific case is chosen
+case label2 : statement(s) break; //need a break statement to exit case once case is found and executed.
+...
+default : statement(s) break; //no case found, default executes.
+
+} //break causes execution to jump to the next statement that follows the switch.
+
+*Useful to know:
+char choice;
+cin >> choice;
+
+while(choice != 'Q' || choice != 'q'){
+	switch(choice){
+
+	case 'a' :
+	case 'A' : cout << "Hello";
+	           break; //Have two cases do the same thing;
+
+	case 'b' :
+	case 'B' : cout << "Where am I? ";
+		   break;
+
+	default: cout << "exit";
+		 break;
+	}
+} //Can enter a or A || b or B
+
+-You can also use ENUM as labels for switch statements. When you use cin >> enum enum_name it gets evaluated as a int.
+
+-Switch and if-else are more or less the same, but switch statements are not designed to handle ranges, while if-else statements can.
+
+break & continue:
+-You can use the break statement in a switch statement or any of the loops. The break exits out of the current loop and moves on to the next statement.
+
+-The continue statement is used in loops and causes a program to skip the rest of the body of the loop and then start a new loop cycle.
+
+break exits and moves to the next statement
+continue skips rest of the loop and loop reiterates.
+
+**Use cin.clear() to clear bad input values and reset cin.
+
+Simple File Input/Output:
+-When you use cin for input, the program views input as a series of bytes, with each byte being interpreted as a character code.
+-All input starts out as text.
+
+File Input/Output
+-You must include <fstream> header file
+-the fstream header file defines an ofstream and ifstream for file output and input respectively.
+-You need to declare one or more ifstream and ofstream objects.
+-Must account for std namespace, should use using directive or std::ofstream
+-You need to associate a specific ofstream or ifstream object with a specific file, using something like open() method
+-When you're finished with file, be sure to close it using close() method
+-You can use ofstream object with << to output a variety of data types.
+
+-ofstream object declaration example:
+ofstream outFile; //outFile an ofstream object
+
+-Here's how you a associate ofstream objects with particular files:
+outFile.open("fish.txt");
+OR
+
+char filename[50];
+cin >> filename;
+outFile.open(filename);
+
+*****ofstream WRITES to a text file
+*****ifstream READS from a text file
+
+-Once you set up an ofstream object such as outFile, you can use it in a similar fashion to cout <<
+
+******When you open an existing file using ofstream object, then the file gets overwritten everytime the open() method associated with the ofstream object gets called***
+
+
+-You can use an ifstream object just like you would cin >>
+-For ifstream objects that open a file, there must be an error checking statement to see if the file even exists
+
+		**ifstream inFile;  //use .is_open() to check if file was opened properly and without problems. If there are problems, throw an error.
+		  inFile.open("Hello.txt");
+		  	if(!inFile.is_open()){
+			 	exit(EXIT_FAILURE);
+			} //The exit function terminates the program.
+
+
+
+More good practice:
+//standard file reading loop design
+
+double value;
+inFile >> value
+	while(inFile.is_open()){
+	//loop body goes here.
+	inFile >> value;
+	}
+
+
+To test whether each read input is a succesful data type match:
+	while(inFile >> value){
+	//loop body
+	} //will only exit when inFile reads in an incorrect data type.
+
+
+Summary:
+-if-else if-else statements
+-switch statements
+-Arithmetic operators +, -, *, /, %
+-Relational operators <, <=, ==, >=, >
+-Logical operators &&, ||, !
+-Conditional operators exp1 ? exp2 : exp3 //if exp1 true, then exp2, else exp3
+
+-fstream objects such as ifstream for READING INPUT from files and ofstream objects for WRITING TO files.
+
+
+cin.ignore(charsToIgnore, delimiter) //this is important when taking in input and you only want one char to be processed. This prevents an error message from appearing like a bajillion times if cin takes in more
+//than one wrong char
+
+***Important, when you are working with input, it is important to make sure that cin is always ready to take in the right value.
+
+____________________________________________________________________________________________________________________
+
+3 Ways to Pass a 2D Array into a Function:
+
+1. int array[10][10];
+
+void passFunct(int a[][10]){
+	//...
+}
+
+passFunct(array);
+
+
+2. int* array[10];
+for(int i = 0; i < 10; i++){
+	array[i] = new int[10];
+}
+
+void passFunct(int* a[10]){
+	//...
+}
+
+passFunct(array);
+
+3. int** array;
+array = new int*[10];
+
+for(int i = 0; i < 10; i++){
+	array[i] = new int[10];
+}
+
+void passFunct(int** a)
+{
+	//...
+}
+
+passFunct(array);
+
+
+More ways:
+
+template <size_t rows, size_t cols>
+void process_2d_array_template(int (&array)[rows][cols])
+{
+    std::cout << __func__ << std::endl;
+    for (size_t i = 0; i < rows; ++i)
+    {
+        std::cout << i << ": ";
+        for (size_t j = 0; j < cols; ++j)
+            std::cout << array[i][j] << '\t';
+        std::cout << std::endl;
+    }
+} // Pass by reference
+
+void process_2d_array_pointer(int (*array)[5][10])
+{
+    std::cout << __func__ << std::endl;
+    for (size_t i = 0; i < 5; ++i)
+    {
+        std::cout << i << ": ";
+        for (size_t j = 0; j < 10; ++j)
+            std::cout << (*array)[i][j] << '\t';
+        std::cout << std::endl;
+    }
+} //Pass by pointer
+
+ // int array[][10] is just fancy notation for the same thing
+void process_2d_array(int (*array)[10], size_t rows)
+{
+    std::cout << __func__ << std::endl;
+    for (size_t i = 0; i < rows; ++i)
+    {
+        std::cout << i << ": ";
+        for (size_t j = 0; j < 10; ++j)
+            std::cout << array[i][j] << '\t';
+        std::cout << std::endl;
+    }
+}//Pass by Value (a pointer to the decayed type)
+
+// int *array[10] is just fancy notation for the same thing
+void process_pointer_2_pointer(int **array, size_t rows, size_t cols)
+{
+    std::cout << __func__ << std::endl;
+    for (size_t i = 0; i < rows; ++i)
+    {
+        std::cout << i << ": ";
+        for (size_t j = 0; j < cols; ++j)
+            std::cout << array[i][j] << '\t';
+        std::cout << std::endl;
+    }
+} //Pass by pointer to pointer
+
+#include <iostream>
+
+// copy above functions here
+
+int main()
+{
+    int a[5][10] = { { } };
+    process_2d_array_template(a);
+    process_2d_array_pointer(&a);    // <-- notice the unusual usage of addressof (&) operator on an array
+    process_2d_array(a, 5);
+    // works since a's first dimension decays into a pointer thereby becoming int (*)[10]
+
+    int *b[5];  // surrogate
+    for (size_t i = 0; i < 5; ++i)
+    {
+        b[i] = a[i];
+    }
+    // another popular way to define b: here the 2D arrays dims may be non-const, runtime var
+    // int **b = new int*[5];
+    // for (size_t i = 0; i < 5; ++i) b[i] = new int[10];
+    process_pointer_2_pointer(b, 5, 10);
+    // process_2d_array(b, 5);
+    // doesn't work since b's first dimension decays into a pointer thereby becoming int**
+}
+
+______________________________________________________________________________________________________________________
+Chapter 7: Functions - C++'s' Programming Modules
+-To use a C++ function you must do the following:
+1) Provide a function definition
+2) Provide a function prototype
+3) Call the function
+
+*If you are using a library function, it has already been defined and compiled for you
+
+Defining a Function:
+
+	typeName functName(parameterList){
+		//Do something
+		return value; //optional if void, necessary if return type is specified
+	}
+
+-The return value cannot be an array, everything else is possible--- integers, floats, pointers, and even structures and objects.
+**Even though a C++ function can't return an array, it can return an array that's part of a structure or an object.
+
+
+-A function terminates after executing a return statement.
+
+-Function prototypes lay out the fundamental structure of the function. A prototype also describes a functions interface to a compiler
+**You don't' need to have var. names in your functions protoype, just the types
+
+-In general, prototyping produces automatic type casts to the expected types. Type conversion happens only when it makes sense.
+
+-prototyping takes place during compile time and is termed static type checking
+
+
+Function Arguments: Passing By Value
+-Numeric val. of argument is passed to the function, where it is assigned a new variable. The original value is not altered by the end of the function body.
+
+-A variable used to recieve the passed values is the parameter
+-A variable that is directly passed in, is called the argument of the function.
+
+-Variables, including parameters declared within a function are private to that function.
+*Remember: local variables only exist within the scope of the blocks that surround them.
+global variables exists throughout the duration of the program until termination
+
+-A function can have more than one argument separated by a comma. Each variable must be declared seperately in the argument.
+
+Functions and Arrays:
+You can use functions to process arrays, so that you can avoid writing loops every single time.
+Rememeber in a function:
+
+void fun1(int arr[]) is equivalent to void fun2(int *arr)
+
+Passing arrays as  constant references prevents large arrays from being copied everytime a function is called.
+
+Pointers & const
+int age = 39;
+const int* pt = &age; //ptr to const int, cannot change the value of age.
+age = 20; //this is valid because age is not a const
+
+const int* const pt = &age; //pt cannot change the value of age and it cannot pt to another variable.
+
+Recursion::::
+Recursion is when a function calls itself
+
+If think() is a function, think is the address of the function.
+
+/*
+Design a function calculate() that takes two type double values and
+a pointer to a function that takes two double arguments and returns a
+double. The calculate() function should also be type double, and it
+should return teh value that the pointer-to function calculates, using the
+double arguements to calculate(). For example, suppose you have this
+definition for the add() function:
+double add(double x, double y)
+{
+return x + y;
+}
+Then the function call in
+double q = calculate(2.5, 10.4, add);
+would cause calculate() to pass the values 2.5 and 10.4 to the add()
+function and then return the add() return value (12.9).
+Use these functions and at least one additional function in the add() mold
+in a program. The program should use a loop that allows the user to enter
+pairs of numbers. For each pair, use calculate() to invoke add() and at
+least one other function. If you are feeling adventurous, try creating an
+array of pointers to add()-style functions and use a loop to successively
+apply calculate() to a series of functions by using these pointers. Hint:
+Here’s how to declare such an array of three pointers:
+double(*pf[3])(double, double);
+You can initialize such an array by using the usual array initialization syntax
+and function names and addresses.
+*/
+
+
+#include <iostream>
+
+using namespace std;
+
+double calculate(double x, double y, double (*pf)(double, double));
+double add(double oX, double oY);
+double subtract(double oX, double oY);
+
+
+int main(){
+  double a,b;
+  cin >> a >> b;
+  cout << calculate(a, b, add)<< endl;
+  cout << calculate(a, b, subtract) << endl;
+
+  double (*funArr[3])(double, double) = {add, subtract, add};
+
+  for(int i = 0; i < 3; ++i){
+    cout << calculate(3, 4, funArr[i]) << endl;
+  }
+
+  return 0;
+}
+
+
+double calculate(double x, double y, double (*pf)(double, double)){
+  return pf(x, y);
+}
+
+double add(double oX, double oY){
+  return oX + oY;
+}
+
+double subtract(double oX, double oY){
+    return oX - oY;
+}
+--------------------------------------------------------
+#include<iostream>
+
+const int FUNCTIONS = 3;
+
+// function prototypes
+double add(double x, double y);
+double multiply(double x, double y);
+double subtract(double x, double y);
+void calculate(double x, double y, double (*pf[])(double a, double b), int length);
+
+int main(void)
+{
+	using namespace std;
+
+	// declare and initialize an array of pointers to functions
+	double (*pf[FUNCTIONS])(double, double) = {add, multiply, subtract};
+
+	cout << "Enter two numbers (q to quit): ";
+	double x, y;
+	while (cin >> x >> y)
+	{
+		cout << "The sum, product, and difference are as follows: ";
+		calculate(x, y, pf, FUNCTIONS);
+		cout << "Enter another two numbers (q to quit): ";
+	}
+
+	return 0;
+}
+
+// adds two numbers
+double add(double x, double y)
+{
+	return x + y;
+}
+
+// multiplies two numbers
+double multiply(double x, double y)
+{
+	return x * y;
+}
+
+// subtracts two numbers
+double subtract(double x, double y)
+{
+	return x - y;
+}
+
+// makes calculations between two numbers through several designated functions
+void calculate(double x, double y, double (*pf[])(double a, double b), int length)
+{
+	using namespace std;
+	for (int i = 0; i < length; i++)
+	{
+		cout << (*pf[i])(x, y) << "  ";
+	}
+	cout << endl;
+	return;
+}
+
+Recursion w/ Multiple Recursive calls:
+Recursion is particularly useful in situations that call for repeatedly subdividing a task into two smaller similar tasks.
+This approach is sometimes known as the divide and conquer strategy
+
+Function Pointer Basics:
+1) Obtain the address of the Function -> if think() is a function, think is the address of the function.
+Ex.
+process(think); //passes the address of think() to function process
+thought(think()); //passes the return value of think() to thought
+
+2) Declare a pointer to a Function -> Suppose we have the function: double pam(int); //prototype
+    A pointer to the function would be double (*pf)(int); //pf points to a function that takes one argument and returns double
+    ***
+    double (*pf)(int) //pf points to a function that returns a double
+    double* pf(int) //pf is a function that returns a pointer to a double
+
+    double pam(int);
+    double (*pf)(int);
+    pf = pam; //pf now points to pam.
+
+    pf has to match pam in both signature and return type.
+
+
+3) Use a pointer to a function to invoke the function ->
+  double pam(int);
+  double (*pf)(int);
+  pf = pam;
+  double x = pam(4);
+  double y = (*pf)(5);//invokes pam using the pointer.
+  double z = pf(10); //THIS IS ALSO VALID
+
+___________________________________________________________________________________________________________________________________________________________________
+Chapter 8: Adventures in Functions:
+
+inline functions save overhead when the function is called few times and is a short statement function,
+(Ex. Square function) but makes no real difference for larger programs with multiple calls and complex functions. If a program makes a call
+to a function with multiple loops and control structures multiple times, the overhead is pretty similar
+
+Overhead is the computers time and memory functionality in regards to efficiency.
+
+Ex. of inline function:
+inline double square(double x){ return x*x; }
+
+Reference Variables:
+A reference is a variable that acts an alias for another variable. They both point to exactly the same location in memory.
+int rats;
+int &rodents = rats; //rodents and rats represent the same thing. In this case &  is not the address operators, but instead means reference to int.
+
+Differences between pointers and references:
+1) You must initalize a reference to a variable right away in a single statement. (References are like const pointers)
+int& rodents = rats;
+int* const ptr = &rats; //both pretty much mean the same thing.
+
+Any change to a reference will modify the location/variable it references
+
+
+int rats = 101;
+int* pt = &rats; //pt points to rats
+int& rodents = *pt; //rodents references the location that pt points to
+int bunnies = 50;
+pt = &bunnies; //pt now points to bunnies. Does not change the fact that rodents references rats.
+Once a reference is made, it cannot be changed.
+
+References as function parameters:
+C++ allows you to pass args by reference, this can't' be done in C. You  can only pass by value in C, but you can avoid having a function making copies
+every time a argument is passed, by passing in a pointer. The pointer will pass in the location in memory you want the function to modify or save memory
+by avoiding making a copy.
+
+Passing by value, creates one variable identical to the passed in argument with two names. (two vars, two names)
+Passing by reference creates no variables (so one variable two names).
+
+
+Passing by references & passing by ptrs will have the same effect of working with the original values.
+
+void swapRef(int& a, int& b){
+  int temp;
+  temp = a;
+  a = b;
+  b = temp;
+} //the original values of the og variables will be swapped.
+//swapRef(p, q) for it to work.
+
+void swapPtr(int* a, int* b){
+  int temp;
+  temp = *a;
+  *a = *b;
+  *b = temp;
+} //swapPtr(&p, &q) for it to work. But has the same effect as above.
+
+Reference variables become useful w/ larger data units such as structures and classes. So you need to know when to pass by value and when to pass by reference.
+
+-Good practice says you should avoid passing expressions in functions that pass by reference.
+
+An lvalue is an object that can be referenced (variable, array element, struct member, reference, dereferenced pts);
+
+C++ creates temp variables for functions that pass by const reference, when the argument passed in is not an lvalue. (expression w/ multiple terms, or literal constant).
+This only happens if the function passes in a constant reference though, otherwise you will get a compiler error or it will not have the desired effect on the
+arguments you want to modify.
+Passing by const reference mimics passing by value with the exception of saving memory that would be created for a copy.
+
+Using References w/ Structures:::
+References were primarily introduced to work with structures and classes.
+
+*It is good practice that when returning a structure or class in a function that you return it as a constant reference.
+Returning a reference to a structure instead of just returning a structure is better for efficiency.
+
+Ex. of bad code:
+
+const stru& clone(stru& ref){
+  stru newVar;
+  newVar = ref;
+  return newVar;
+}//This is really bad because you're returning a variable that will cease to exist when the function is done Executing
+//This returns a reference to a temporary variable.
+
+const stru& clone(stru& ref){
+  stru* newVar = new stru;
+  *newVar = ref;
+  return *newVar;
+} //This is much better practice, but make sure to delete the variable allocated with delete later.
+
+Why use const w/ a reference return??
+If you didn't' have const, you could do something like this:
+use(looper).used =  10; //but if you had a const return you wouldn't be able to do this.
+
+Using references w/ classes:::
+Pretty similar to structures. Remember the only difference between structures and classes is that structure vars are public by default and the opposite is true
+for classes.
+
+inheritance is the ability of one class to use the same methods of another class.
+
+***********There are two reasons to use reference Arguments:
+1) To allow you to alter a data object in the calling function
+2) To speed up a program by passing by reference instead of making a copy of an entire data object. (Imp. for classes and structures)
+
+
+*******************GUIDELINES***********************
+A FUNCTION USES PASSED DATA W/O MODIFYING IT:
+-If the data object is small, such as a fundamental type or small struct, pass it by value.
+-If the data object is an array, use a pointer bc that's' your only choice. Make the ptr a ptr to const.
+-If the data object is a big structure or class, use a const ptr or const reference to increase program efficiency.
+-If the data object is a class object, use a const reference. Just because it's' been standardized.
+A FUNCTION MODIFIES DATA:
+-If the data object is a fundamental type, use a pointer.
+-If the data object is an array, your only choice is a ptr.
+-If the data object is a structure, use a reference or a pointer
+-If data object is a class, use a reference.
+
+-----------------------------
+Default Arguments:
+A default argument is a value that is used automatically when you omit an argument from a function call.
+Ex.
+char* left(const char* str, int n = 1); //now n will have a default value of 1
+
+**If you provide defaults, you have to make sure all the arguments to the right of the first default argument have default values as well.
+
+polymorphism->allows you to call multiple functions with the same name and different functionality doing different things depending on the arguments provided.
+
+A functions argument list is AKA the functions signature
+
+Count the number of digits in a number:
+
+void countDigits(int n){
+  unsigned int digits = 1;
+  while(n /= 10){
+    digits++;
+  } //n = 1; 1/10 = 0, loop never executes and digits remains at 1. 20 = n, 20/10 = 2, digits = 2, 2/10 = 0; loop stops executing
+}
+
+*You should only overload functions when you want functions to perform the same tasks but with different data forms.
+TIP* Know when it's' better to overload a function as opposed to using default arguments and vice versa.
+
+***FUNCTION TEMPLATES::::
+A function template is a generic function description and is an aspect of C++ that enables generic programming.
+
+Ex.
+template <typename T> //older versions of C++ use class instead of typeName
+void swap(T& a, T& b){
+  T temp;
+  temp = a;
+  a = b;
+  b = temp;
+}
+
+Templates don't' make programs any shorter, because you still end up with N function definitions depending on N different templates that are used.
+The benefits of templates are that they make generating multiple function definitions simpler and more reliable.
+
+It is also possible to overload templates just as you would overload a regular function. This overloading much like function overloading is determined
+by the template functions signature.
+
+Precedence:
+normal function > explicit template specialization/initialization > template defintion
+
+explicit initialization:
+template void swap<int>(int&, int&); //
+
+explicit specialization
+template <> void swap<int>(int&, int&); //
+
+The compiler uses something called **OVERLOAD RESOLUTION** to determine which function takes precedence. It looks at the function that is the best match.
+_________________________________________________________________________________________________________________________________________________________
+
+Executing a program from a C++ program (Linux)
+
+#include <cstdlib>
+
+system("application.exe");
+
+system("application.exe /path/to/file.xxx"); //open specific file within the program
+
+________________________________________________________________________________________________________________________________________________________________
+Chapter 9: Memory Models & Namespaces:
+-----------------------
+Separate Compilation of Programs:
+Storage duration-> how long data remains in memory.
+Which parts of a program have access to data-> scope and linkage
+
+How to divide up a program:
+1) A header file that contains class declarations and prototypes:
+2) A source file that defines the methods in the header.
+3) A source file that calls the functions defined in the above two files
+
+Use quotations for user created headers and angle brackets for predefined headers.
+
+Header File structure:
+
+#ifndef FILE_H
+#define FILE_H
+......
+......
+......
+#endif
+----------------------
+Storage Duration, Scope, & Linkage:
+
+C++ uses 3 seperate schemes for storing data.
+1) Automatic storage duration: variables declared inside a function defintion, including function parameters. Allocated & deleted within the scope of the function definition
+2) Static storage duration: variables defined outside a function defintion  (global variables) or by using the keyword static. Persist for the entire time the
+program runs
+3) Dynamic Stoage duration: memory allocated by the new operator persists until it is manually deleted using the delete keyword. This dynamic memory is the heap storage
+or free store.
+
+Linkage describes how a name can be shared in different units. External linkage can be shared across files, internal linkage can be shared by functions within a single file
+Local scope- variable exists only in the block that it is defined in.
+Global scope- file scope, known throughout the file after the point where it is defined.
+
+Automatic variables have local scope and static variables can have either local or global scope depending on the way that it is defined.
+Members w/ class scope persist within a class.
+Variables declared in a namespace have namespace scope.
+Functions have namespace scope or class scope, including global scope. Functions can't' have local scope because then they would only be known to themselves.
+
+int main(){
+  int x = 5;
+
+  {
+    int x = 3; //this is seperate from the other x and exists only in this scope
+  }
+
+  any use of x here will use the first x=5 because it has a wider scope then the second x.
+
+}
+
+keyword auto indicates that a variable has automatic scope, but programmers rarely ever use it.
+auto int x; //x has automatic scope.
+
+Automatic variables are managed by a stack() last in first out. Variables with wider scopes persist until their block is reached.
+
+int main(){
+  int x;
+
+  {
+    int y;
+  }
+
+  {
+    int z;
+  }
+
+}
+
+Automatic Duration Variables::::
+Stack() for the above program: Stack is last in first out OR first in last out.
+
+y --> y gets popped out --> z  --> z gets popped out when it goes out of scope -->
+x     x                     x                                                      x ---> x is now going to be popped once the program reaches the end of the first block.
+
+The program keeps track of the stack using two pointers:
+1st ptr points to the base of the stack, where memory set aside for stack begins.
+2nd ptr points to the top of the stack which is the next free location.
+
+register -> another form of an automatic variable. It is a hint to the compiler that you want it to provide fast access to the variable
+perhaps by using the cpu register instead of the stack to handle a particular variable. Note that the compiler will not always honor this
+request depending if the registers are in use or not.
+Ex.
+register int x;
+
+if you declare a variable using the register keyword it does not have an address
+so you cannot use the &operator
+
+auto variables and register variables have automatic storage duration, local scope and no linkage.
+
+Static Duration Variables::::
+Static duration variables can have external linkage, internal linkage or no linkage. And all three last for the duration of a program.
+
+Static variables are not managed by a stack, they are instead allocated a fixed block of memory to hold all the static variables.
+If you don't' explicitly initialize a static variable, the compiler will set it to 0. Static arrays and structures have all the bits
+of each element or member set to 0 by default.
+
+int global = 1000; //static duration, external linkage //can also be used in other files.
+static int pizzas = 10; //static duration, internal linkage. //can only be used in the file that contains it.
+
+int main(){
+...
+}
+
+void func(){
+  static int count = 0; //static duration, no linkage.
+  //can only be used inside this function, but remains in memory even when this function is not executed.
+}
+
+A static variable can only be initialized with a const expression. (literal const, const and enum const, and sizeof operator)
+Ex.
+int x; //x set to 0;
+int y = 49; // 49 is const expression.
+int z = 2 * sizeof(int) + 1 //also const expression
+in*t m = 2* z; //invalid because z is not a const.
+int main(){
+
+}
+
+Variables with external linkage are often called external variables or global variables.
+
+You can use the extern keyword to redeclare a global variable to specify that it is the variable you want a function to use.
+extern is a referencing declaration because the variable it refers to already exists and memory does not need to be allocated for a
+new variable.
+
+Automatic variables take precedence over global variables if they share the same name and are inside a local block.
+
+If you are in a local scope and you want to refer to the global variable even though the scope has created a variable with the same name
+prefix the global variable with ::
+::x //refers to the global variable.
+
+:: -> is known as the scope resolution operator.
+
+You should avoid using global variables because all functions have access to that variable. This creates unrealiable programs.
+
+Good use of global variables when you have a block of data that needs to be used by multiple functions:
+Ex.
+
+const char* const months[12] =
+{
+  "Jan", "Feb", "March" .... etc.
+}
+
+The first const ensures that the data cannot be changed and the second const ensures that each pointer will not point to anything but the specified months
+If you create a global variable you must reference it using the extern keyword if you use it in a seperate file.
+
+file1
+int errors = 20; //external definiton
+
+file2
+extern int errors; //refers to the external definiton from file 1.
+
+In a multifile program you can define an external variable in only one file. And each other file that uses it must use the extern
+keyword
+
+Static storage duration w/ no linkage
+A static local variable can preserve its value between function calls.
+Static local variables can be very useful when you want to maintain a total count each time a function is called because the value is
+maintained
+
+Specifiers & Qualifiers:
+Cetain C++ keywords called storage class specifiers and cv-qualifiers provide information about storage.
+Class Specifiers:
+auto
+register
+static
+extern
+mutable -> you can use mutable to indicate that a particular member of a structure or class can be altered even if a the structure or class
+variable is of type const. Ex.
+struct data{
+  char name[30];
+  mutable int x;
+}
+
+const data v = {"Yella", 2};
+veep.name = "sjd"; //NOT ALLOWED
+veep.x = 4; //THIS IS ALLOWED
+
+cv-qualifiers: (cv stands for const and volatile)
+const -> indicates that memory once initialized should not be altered by the program
+volatile -> indicates that value in memory location can be altered even though nothing in the program modifies its contents.
+(volatile -> you can have a ptr to hardware location that contains the time or information from a serial port. in this case the hardware
+not the program changes the contents)
+
+More about const:
+a global variable has external linkage by default, but a const global variable has internal linkage by default.
+*This is why it is good practice to put const defintions in a header file.
+
+if you want to use a const extern variables you must explicitly say so in the initial declaration and all following uses of it in other files
+
+extern const int x; //now you have an external const variable, must use extern in other files as well.
+
+Functions and Linkage::
+All functions automatically have static storage duration by default because you cannot define functions inside other functions.
+By default functions have external linkage.
+You can use extern and static when defining function protoypes to indicate whether you want external linkage or only internal linkage.
+
+You can only have one definition for an external function
+
+Dynamic Storage & Alloctions:
+This is done using the new and delete keywords!
+new memory allocated in the heap!
+
+----------------------
+Placement new: -> allows you to specify the location to be used.
+
+To use the placement new feature you must include the <new> header
+#include <new>
+
+placement new simply uses the address given to it to store data.
+
+----------------------
+Namespaces:
+When programming projects grow large the potential for name conflicts becomes greater.
+
+A declarative region -> a region where declarations can be made.
+potential scope -> begins at point of declaration and extends to the end of its declarative region.
+
+The prev. namespace was the global namespace which encompassed an entire program file.
+C++ has a new feature of allowing a user to create custom namespaces or custom declarative regions.
+The names of one namespace will not conflict w/ another namespace that uses same names for variables
+
+Namespaces can be located at the global level or inside other namespaces, but they cannot be placed in a block.
+
+A name declared in a namespace has external linkage by default.
+
+namespaces are open, meaning you can add names to existing namespaces. Just redeclare the namespace block and add the variables within this
+new block and the names will be added to the name space.
+
+ex.
+
+namespace j{
+  int x;
+}
+
+namespace j{
+  int y;
+} //this adds y to namespace j.
+
+Use :: (scope resolution operator to acces namespace variables
+
+fully qualified name:
+j::x //fully qualified name of x.
+
+you can use the using directive to tell the compiler  which namespace you are specifiying when it comes to a variable
+
+using j::x //tells the compiler that you are using variable x from namespace j.
+
+or you can do
+using namespace j; //tells the compiler  to include all functions and variables from j w/o having to use the fully qualified name
+
+using directives and declarations increase the probability of name conflicts.
+
+using namespace j; //using directive;
+
+j::x; //using declaration
+
+You can also create alias's' for namespaces
+
+You can also create unnamed namespaces by omitting a name;
+names in an unnamed namespace are like global variables.
+
+
+***********GUIDELINES*******************
+1. use variables in a named namespace instead of using external global variables
+2. use variable in a unnamed namespace insted of using static global variables
+3. if you develop a library of functions or classes, place them in a namespace.
+4. use the using directive only as a temporary means of converting old code to namespace usage.
+5. Do not use using directives in header files, it may affect behaviour, if you do use it, place it
+at the end of the #include directives.
+6. It is preferred to use scope resolution operator or using declaration
+7. Preferentially use local scope instead of global scope for using declarations.
+
+namespace is there to simplify management of larger programming projects
+
+
+_________________________________________________________________________________________________________________________________________________________
+Chapter 10: Objects & Classes:
+The following are the most important OOP features:
+• Abstraction
+• Encapsulation and data hiding
+• Polymorphism
+• Inheritance
+• Reusability of code
+---------------------------------------------------
+Procedural & Object Oriented Programming:
+In short, with an OOP approach, you concentrate on the object as the user perceives it, thinking
+about the data you need to describe the object and the operations that will describe the
+user’s interaction with the data. After you develop a description of that interface, you move on
+to decide how to implement the interface and data storage. Finally, you put together a program
+to use your new design.
+---------------------------------------------------
+The Concept of Classes;
+Abstraction means simplifying something complex into a much simpler form. We are made of billions and trillions of atoms,
+but we look at ourselves as a single entity which is an abstraction from the underlying truth.
+
+In short, specifying
+a basic type does three things:
+• It determines how much memory is needed for a data object.
+• It determines how the bits in memory are interpreted. (A long and a float might use
+the same number of bits in memory, but they are translated into numeric values differently.)
+• It determines what operations, or methods, can be performed using the data object.
+
+For built-in types, the information about operations is built in to the compiler. But when you
+define a user-defined type in C++, you have to provide the same kind of information yourself.
+In exchange for this extra work, you gain the power and flexibility to custom fit new data
+types to match real-world requirements.
+
+A class is a C++ vehicle for translating an abstraction to a user-defined type. It combines data
+representation and methods for manipulating that data into one neat package.
+
+Generally, a class specification has two parts:
+• A class declaration, which describes the data component, in terms of data members, and
+the public interface, in terms of member functions, termed methods
+• The class method definitions, which describe how certain class member functions are
+implemented
+Roughly speaking, the class declaration provides a class overview, whereas the method definitions
+supply the details.
+---------------------------------------------------
+How to define and implement a class:
+// beginning of stocks.cpp file
+#include <iostream>
+#include <cstring>
+class Stock // class declaration
+{
+private:
+  char company[30];
+  int shares;
+  double share_val;
+  double total_val;
+  void set_tot() { total_val = shares * share_val; }
+public:
+  void acquire(const char * co, int n, double pr);
+  void buy(int num, double price);
+  void sell(int num, double price);
+  void update(double price);
+  void show();
+}; // note semicolon at the end
+
+//more stocks.cpp -- implementing the class member functions
+void Stock::acquire(const char * co, int n, double pr)
+{
+std::strncpy(company, co, 29); // truncate co to fit company
+company[29] = ‘\0’;
+  if (n < 0)
+  {
+    std::cerr << “Number of shares can’t be negative; “
+    << company << “ shares set to 0.\n”;
+    shares = 0;
+  }
+  else
+    shares = n;
+share_val = pr;
+set_tot();
+}
+
+void Stock::buy(int num, double price)
+{
+  if (num < 0)
+  {
+    std::cerr << “Number of shares purchased can’t be negative. “
+    << “Transaction is aborted.\n”;
+  }
+  else
+  {
+    shares += num;
+    share_val = price;
+    set_tot();
+  }
+}
+
+..... And so on for the other functions
+
+Also new are the keywords private and public. These labels describe access control for class
+members. Any program that uses an object of a particular class can access the public portions
+directly. A program can access the private members of an object only by using the public member
+functions (or, as you’ll see in Chapter 11, “Working with Classes,” via a friend function).
+For example, the only way to alter the shares member of the Stock class is to use one of the
+Stock member functions.
+
+A class design attempts to separate the public interface from the specifics of the implementation.
+The public interface represents the abstraction component of the design. Gathering the
+implementation details together and separating them from the abstraction is called encapsulation.
+Data hiding (putting data into the private section of a class) is an instance of encapsulation,
+and so is hiding functional details of an implementation in the private section, as the
+Stock class does with set_tot(). Another example of encapsulation is the usual practice of
+placing class function definitions in a separate file from the class declaration
+
+---------------------------------------------------
+Public and Private Class Access:
+You can declare class members, whether they are data items or member functions, either in the
+public or the private section of a class. But because one of the main precepts of OOP is to hide
+the data, data items normally go into the private section. The member functions that constitute
+the class interface go into the public section; otherwise, you can’t call those functions from a
+program.
+
+You don’t have to use the keyword private in class declarations because that is the default
+access control for class objects:
+---------------------------------------------------
+Class data members:
+The class data members are the variables that represent the object. They are the class members that remain private
+so that they can only be modified by the class methods which in practice should be public.
+
+---------------------------------------------------
+Class methods(class function members):
+Member function definitions can have return types and arguments. But they also have
+two special characteristics:
+• When you define a member function, you use the scope-resolution operator (::) to
+identify the class to which the function belongs.
+• Class methods can access the private components of the class.
+
+We say that the identifier update() has class scope. Other member functions of
+the Stock class can, if necessary, use the update() method without using the scope-resolution
+operator. That’s because they belong to the same class, making update() in scope.
+
+One way of looking at method names is that the complete name of a class method includes the
+class name. Stock::update() is called the qualified name of the function. A simple update(),
+on the other hand, is an abbreviation (the unqualified name) for the full name—one that can
+be used just in class scope.
+
+The second special characteristic of methods is that a method can access the private members
+of a class. For example, the show() method can use code like this:
+cout << “Company: “ << company
+<< “ Shares: “ << shares << endl
+<< “ Share Price: $” << share_val
+<< “ Total Worth: $” << total_val << endl;
+Here company, shares, and so on are private data members of the Stock class. If you try to use
+a nonmember function to access these data members, the compiler stops you cold in your
+tracks. (However, friend functions, which Chapter 11 discusses, provide an exception.)
+
+Any function with a definition in the class declaration automatically becomes an inline function.
+Thus, Stock::set_tot() is an inline function. Class declarations often use inline functions
+for short member functions, and set_tot() qualifies on that account.
+
+Each new object you create contains storage for its own internal variables, the class members.
+But all objects of the same class share the same set of class methods, with just one copy of each
+method. Suppose, for example, that kate and joe are Stock objects. In that case, kate.shares
+occupies one chunk of memory and joe.shares occupies a second chunk of memory. But
+kate.show() and joe.show() both invoke the same method—that is, both execute the same
+block of code. They just apply the code to different data. Calling a member function is what
+some OOP languages term sending a message. Thus, sending the same message to two different
+objects invokes the same method but applies it to two different objects.
+
+Note that main() is just a vehicle for testing the design of the Stock class. When the Stock
+class works as you want it to, you can use it as a user-defined type in other programs. The critical
+point in using the new type is to understand what the member functions do; you shouldn’t
+have to think about the implementation details. See the following sidebar, “The Client/Server
+Model.
+
+OOP programmers often discuss program design in terms of a client/server model. In this conceptualization,
+the client is a program that uses the class. The class declaration, including the class methods,
+constitute the server, which is a resource that is available to the programs that need it. The client
+uses the server through the publicly defined interface only. This means that the client’s only responsibility, and, by extension, the client’s programmer’s only responsibility, is to know that interface.
+The server’s responsibility, and, by extension, the server’s designer’s responsibility, is to see that
+the server reliably and accurately performs according to that interface. Any changes the server
+designer makes to the class design should be to details of implementation, not to the interface. This
+allows programmers to improve the client and the server independently of each other, without
+changes in the server having unforeseen repercussions on the client’s behavior.
+--------------------------------------------------
+Creating and using class objects:
+// stocks.cpp -- the whole program
+#include <iostream>
+#include <cstring>
+class Stock // class declaration
+{
+private:
+char company[30];
+int shares;
+double share_val;
+double total_val;
+void set_tot() { total_val = shares * share_val; }
+public:
+void acquire(const char * co, int n, double pr);
+void buy(int num, double price);
+void sell(int num, double price);
+void update(double price);
+void show();
+}; // note semicolon at the end
+void Stock::acquire(const char * co, int n, double pr)
+{
+std::strncpy(company, co, 29); // truncate co to fit company
+company[29] = ‘\0’;
+if (n < 0)
+{
+std::cerr << “Number of shares can’t be negative; “
+<< company << “ shares set to 0.\n”;
+shares = 0;
+}
+else
+shares = n;
+share_val = pr;
+set_tot();
+}
+void Stock::buy(int num, double price)
+{
+if (num < 0)
+{
+  std::cerr << “Number of shares purchased can’t be negative. “
+  << “Transaction is aborted.\n”;
+  }
+  else
+  {
+  shares += num;
+  share_val = price;
+  set_tot();
+  }
+  }
+  void Stock::sell(int num, double price)
+  {
+  using std::cerr;
+  if (num < 0)
+  {
+  cerr << “Number of shares sold can’t be negative. “
+  << “Transaction is aborted.\n”;
+  }
+  else if (num > shares)
+  {
+  cerr << “You can’t sell more than you have! “
+  << “Transaction is aborted.\n”;
+  }
+  else
+  {
+  shares -= num;
+  share_val = price;
+  set_tot();
+  }
+  }
+  void Stock::update(double price)
+  {
+  share_val = price;
+  set_tot();
+  }
+  void Stock::show()
+  {
+  using std::cout;
+  using std::endl;
+  cout << “Company: “ << company
+  << “ Shares: “ << shares << endl
+  << “ Share Price: $” << share_val
+  << “ Total Worth: $” << total_val << endl;
+  }
+  int main()
+  {
+  using std::cout;
+  using std::ios_base;
+  Stock stock1;
+stock1.acquire(“NanoSmart”, 20, 12.50);
+cout.setf(ios_base::fixed); // #.## format
+cout.precision(2); // #.## format
+cout.setf(ios_base::showpoint); // #.## format
+stock1.show();
+stock1.buy(15, 18.25);
+stock1.show();
+stock1.sell(400, 20.00);
+stock1.show();
+return 0;
+}
+
+Company: NanoSmart Shares: 20
+Share Price: $12.50 Total Worth: $250.00
+Company: NanoSmart Shares: 35
+Share Price: $18.25 Total Worth: $638.75
+You can’t sell more than you have! Transaction is aborted.
+Company: NanoSmart Shares: 35
+Share Price: $18.25 Total Worth: $638.75
+
+1) The first step in specifying a class design is to provide a class declaration. The class declaration
+is modeled after a structure declaration and can include data members and function members.
+The declaration has a private section, and members declared in that section can be accessed
+only through the member functions. The declaration also has a public section, and members
+declared there can be accessed directly by a program using class objects. Typically, data members
+go into the private section and member functions go into the public section, so a typical
+class declaration has this form:
+class className
+{
+private:
+  data member declarations
+public:
+  member function prototypes
+};
+
+The contents of the public section constitute the abstract part of the design, the public interface.
+Encapsulating data in the private section protects the integrity of the data and is called
+data hiding. Thus, using a class is the C++ way of making it easy to implement the OOP features
+abstraction, data hiding, and encapsulation.
+
+2) The second step in specifying a class design is to implement the class member functions. You
+can use a complete function definition instead of a function prototype in the class declaration,
+but the usual practice, except with very brief functions, is to provide the function definitions
+separately. In that case, you need to use the scope-resolution operator to indicate to which
+class a member function belongs. For example, suppose the Bozo class has a member function
+called Retort() that returns a pointer to a char. The function header would look like this:
+char * Bozo::Retort()
+
+3) To create an object, which is a particular example of a class, you use the class name as if it
+were a type name:
+Bozo bozetta;
+This works because a class is a user-defined type.
+You invoke a class member function, or method, by using a class object. You do so by using
+the dot membership operator:
+cout << Bozetta.Retort();
+This invokes the Retort() member function, and whenever the code for that function refers
+to a particular data member, the function uses the value that member has in the bozetta
+object.
+
+--------------------------------------------------
+Class Constructors & Destructors:
+In general, it’s best that all objects be initialized when they are created.
+C++ provides for special member functions, called class constructors, especially for constructing
+new objects and assigning values to their data members. More precisely, C++ provides a
+name for these member functions and a syntax for using them, and you provide the method
+definition. The name is the same as the class name. For example, a possible constructor for the
+Stock class is a member function called Stock(). The constructor prototype and header have
+an interesting property: Although the constructor has no return value, it’s not declared type
+void. In fact, a constructor has no declared type.
+
+// constructor definition
+Stock::Stock(const char * co, int n, double pr)
+{
+std::strncpy(company, co, 29);
+company[29] = ‘\0’;
+if (n < 0)
+{
+std::cerr << “Number of shares can’t be negative; “
+<< company << “ shares set to 0.\n”;
+shares = 0;
+}
+else
+shares = n;
+share_val = pr;
+set_tot();
+}
+
+This is the same code that you used for the acquire() function earlier in this chapter. The difference
+is that in this case, a program automatically invokes the constructor when it declares
+an object.
+
+C++ provides two ways to initialize an object by using a constructor. The first is to call the
+constructor explicitly:
+Stock food = Stock(“World Cabbage”, 250, 1.25);
+This sets the company member of the food object to the string “World Cabbage”, the shares
+member to 250, and so on.
+The second way is to call the constructor implicitly:
+Stock garment(“Furry Mason”, 50, 2.5);
+
+C++ uses a class constructor whenever you create an object of that class, even when you use
+new for dynamic memory allocation. Here’s how to use the constructor with new:
+Stock *pstock = new Stock(“Electroshock Games”, 18, 19.0);
+
+A default constructor is a constructor that is used to create an object when you don’t provide
+explicit initialization values. That is, it’s a constructor that is used for declarations like this:
+Stock stock1; // uses the default constructor
+Hey, Listing 10.3 already did that! The reason this statement works is that if you fail to provide
+any constructors, C++ automatically supplies a default constructor. It’s an implicit version of a
+default constructor, and it does nothing. For the Stock class, the default constructor would
+look like this:
+Stock::Stock() { }
+The net result is that the stock1 object is created with its members uninitialized, just as
+int x;
+
+A constructor can only be invoked at initialization.
+
+A curious fact about default constructors is that the compiler provides one only if you don’t
+define any constructors. After you define any constructor for a class, the responsibility for providing
+a default constructor for that class passes from the compiler to you. If you provide a
+nondefault constructor, such as Stock(const char * co, int n, double pr), and don’t
+provide your own version of a default constructor, then a declaration like
+Stock stock1; // not possible with current constructor
+becomes an error. The reason for this behavior is that you might want to make it impossible to
+create uninitialized objects. If, however, you wish to create objects without explicit initialization,
+you must define your own default constructor.
+
+This is a constructor that takes no arguments.
+You can define a default constructor two ways. One is to provide default values for all
+the arguments to the existing constructor:
+Stock(const char * co = “Error”, int n = 0, double pr = 0.0);
+The second is to use function overloading to define a second constructor, one that has no
+arguments:
+Stock();
+
+Actually, you should usually initialize objects in order to ensure that all members begin with
+known, reasonable values. Thus, a default constructor typically provides implicit initialization
+for all member values. For example, this is how you might define one for the Stock class:
+Stock::Stock() // default constructor
+{
+std::strcpy(company, “no name”);
+shares = 0;
+share_val = 0.0;
+total_val = 0.0;
+}
+
+Stock first; // calls default constructor implicitly
+Stock first = Stock(); // calls it explicitly
+Stock *prelief = new Stock; // calls it implicitly
+However, you shouldn’t be misled by the implicit form of the nondefault constructor:
+Stock first(“Concrete Conglomerate”); // calls modified constructor
+Stock second(); // declares a function
+Stock third; // calls default constructor
+
+Destructors:
+When you use a constructor to create an object, the program undertakes the responsibility of
+tracking that object until it expires. At that time, the program automatically calls a special
+member function bearing the formidable title destructor. The destructor should clean up any
+debris, so it actually serves a useful purpose. For example, if your constructor uses new to allocate
+memory, the destructor should use delete to free that memory. The Stock constructor
+doesn’t do anything fancy like using new, so the Stock class destructor doesn’t really have any
+tasks to perform. In such a case, you can simply let the compiler generate an implicit, donothing
+destructor, which is exactly what the first version of the Stock class does. On the
+other hand, it’s certainly worth looking into how to declare and define destructors, so let’s provide
+one for the Stock class.
+
+Like a constructor, a destructor has a special name: It is formed from the class name preceded
+by a tilde (~). Thus, the destructor for the Stock class is called ~Stock(). Also, like a constructor,
+a destructor can have no return value and has no declared type. Unlike a constructor,
+a destructor must have no arguments. Thus, the prototype for a Stock destructor must be this:
+~Stock();
+Because a Stock destructor has no vital duties, you can code it as a do-nothing function:
+Stock::~Stock()
+{
+}
+However, just so that you can see when the destructor is called, you can code it this way:
+Stock::~Stock() // class destructor
+{
+cout << “Bye, “ << company << “!\n”;
+}
+
+When should a destructor be called? The compiler handles this decision; normally your code
+shouldn’t explicitly call a destructor. (See the section “Looking Again at Placement new” in
+Chapter 12 for an exception.) If you create a static storage class object, its destructor is called
+automatically when the program terminates. If you create an automatic storage class object, as
+the examples have been doing, its destructor is called automatically when the program exits
+the block of code in which the object is defined. If the object is created by using new, it resides
+in heap memory, or the free store, and its destructor is called automatically when you use
+delete to free the memory. Finally, a program can create temporary objects to carry out certain
+operations; in that case, the program automatically calls the destructor for the object when it
+has finished using it.
+Because a destructor is called automatically when a class object expires, there ought to be a
+destructor. If you don’t provide one, the compiler implicitly declares a default constructor and,
+if it detects code that leads to the destruction of an object, it provides a definition for the
+destructor.
+
+Improving the Stock class:
+1) Header
+// stock1.h -- Stock class declaration with constructors, destructor added
+#ifndef STOCK1_H_
+#define STOCK1_H_
+class Stock
+{
+private:
+char company[30];
+int shares;
+double share_val;
+double total_val;
+void set_tot() { total_val = shares * share_val; }
+public:
+Stock(); // default constructor
+Stock(const char * co, int n = 0, double pr = 0.0);
+~Stock(); // noisy destructor
+void buy(int num, double price);
+void sell(int num, double price);
+void update(double price);
+void show();
+};
+#endif
+
+2) Implementation file:
+// stock1.cpp -- Stock class implementation with constructors, destructor added
+#include <iostream>
+#include “stock1.h”
+// constructors (verbose versions)
+Stock::Stock() // default constructor
+{
+std::cout << “Default constructor called\n”;
+std::strcpy(company, “no name”);
+shares = 0;
+share_val = 0.0;
+total_val = 0.0;
+}
+Stock::Stock(const char * co, int n, double pr)
+{
+std::cout << “Constructor using “ << co << “ called\n”;
+std::strncpy(company, co, 29);
+company[29] = ‘\0’;
+if (n < 0)
+{
+std::cerr << “Number of shares can’t be negative; “
+<< company << “ shares set to 0.\n”;
+shares = 0;
+}
+else
+shares = n;
+share_val = pr;
+set_tot();
+}
+// class destructor
+Stock::~Stock() // verbose class destructor
+{
+std::cout << “Bye, “ << company << “!\n”;
+}
+// other methods
+void Stock::buy(int num, double price)
+{
+if (num < 0)
+{
+std::cerr << “Number of shares purchased can’t be negative. “
+<< “Transaction is aborted.\n”;
+}
+else
+{
+shares += num;
+share_val = price;
+set_tot();
+}
+}
+
+3) Client File
+// usestok1.cpp -- using the Stock class
+#include <iostream>
+#include “stock1.h”
+int main()
+{
+using std::cout;
+using std::ios_base;
+cout.precision(2); // #.## format
+cout.setf(ios_base::fixed, ios_base::floatfield);// #.## format
+cout.setf(ios_base::showpoint); // #.## format
+cout << “Using constructors to create new objects\n”;
+Stock stock1(“NanoSmart”, 12, 20.0); // syntax 1
+stock1.show();
+Stock stock2 = Stock (“Boffo Objects”, 2, 2.0); // syntax 2
+stock2.show();
+cout << “Assigning stock1 to stock2:\n”;
+stock2 = stock1;
+cout << “Listing stock1 and stock2:\n”;
+stock1.show();
+stock2.show();
+cout << “Using a constructor to reset an object\n”;
+stock1 = Stock(“Nifty Foods”, 10, 50.0); // temp object
+cout << “Revised stock1:\n”;
+stock1.show();
+cout << “Done\n”;
+return 0;
+}
+
+--------------------------------------------------
+const Member functions:
+
+Consider the following code snippet:
+const Stock land = Stock(“Kludgehorn Properties”);
+land.show();
+With current C++, the compiler should object to the second line. Why? Because the code for
+show() fails to guarantee that it won’t modify the invoking object, which, because it is const,
+should not be altered. You’ve solved this kind of problem before by declaring a function’s argument
+to be a const reference or a pointer to const. But here you have a syntax problem: The
+show() method doesn’t have any arguments. Instead, the object it uses is provided implicitly
+by the method invocation. What you need is a new syntax, one that says a function promises
+not to modify the invoking object. The C++ solution is to place the const keyword after the
+function parentheses. That is, the show() declaration should look like this:
+void show() const; // promises not to change invoking object
+Similarly, the beginning of the function definition should look like this:
+void stock::show() const // promises not to change invoking object
+Class functions declared and defined this way are called const member functions. Just as you
+should use const references and pointers as formal function arguments whenever appropriate,
+you should make class methods const whenever they don’t modify the invoking object. We’ll
+follow this rule from here on out.
+
+A constructor is a special class member function that’s called whenever an object of that class is
+created. A class constructor has the same name as its class, but, through the miracle of function
+overloading, you can have more than one constructor with the same name, provided that
+each has its own signature, or argument list. Also, a constructor has no declared type. Usually,
+a constructor is used to initialize members of a class object. Your initialization should match
+
+Just as a program invokes a constructor when an object is created, it invokes a destructor
+when an object is destroyed. You can have only one destructor per class. It has no return type
+(not even void), it has no arguments, and its name is the class name preceded by a tilde. For
+example, the Bozo class destructor has the following prototype:
+~Bozo(); // class destructor
+Class destructors that use delete become necessary when class constructors use new
+--------------------------------------------------
+The this pointer:
+First, how do you provide the member function with two objects to compare? Suppose, for
+example, that you decide to name the method topval(). Then, the function call
+stock1.topval() accesses the data of the stock1 object, whereas the message stock2.topval()
+accesses the data of the stock2 object. If you want the method to compare two objects,
+you have to pass the second object as an argument. For efficiency, you can pass the argument
+by reference. That is, you can have the topval() method use a type const Stock & argument.
+Second, how do you communicate the method’s answer back to the calling program? The most
+direct way is to have the method return a reference to the object that has the larger total value.
+Thus, the comparison method should have the following prototype:
+const Stock & topval(const Stock & s) const;
+
+This function accesses one object implicitly and one object explicitly, and it returns a reference
+to one of those two objects. The const in parentheses states that the function won’t modify the
+explicitly accessed object, and the const that follows the parentheses states that the function
+won’t modify the implicitly accessed object. Because the function returns a reference to one of
+the two const objects, the return type also has to be a const reference.
+Suppose, then, that you want to compare the Stock objects stock1 and stock2 and assign the
+one with the greater total value to the object top. You can use either of the following statements
+to do so:
+top = stock1.topval(stock2);
+top = stock2.topval(stock1);
+The first form accesses stock1 implicitly and stock2 explicitly, whereas the second accesses
+stock1 explicitly and stock2 implicitly. (See Figure 10.3.) Either way, the method compares
+the two objects and returns a reference to the one with the higher total value.
+
+Meanwhile, there’s still the implementation of topval() to attend to. It raises a slight problem.
+Here’s a partial implementation that highlights the problem:
+const Stock & Stock::topval(const Stock & s) const
+{
+if (s.total_val > total_val)
+return s; // argument object
+else
+return ?????; // invoking object
+}
+
+Replace question marks w/ *this bc this without the dereference is a pointer and you can access methods ->
+
+The C++ solution to this problem is to use a special pointer called this. The this pointer
+points to the object used to invoke a member function. (Basically, this is passed as a hidden
+argument to the method.) Thus, the function call stock1.topval(stock2) sets this to the
+address of the stock1 object and makes that pointer available to the topval() method.
+Similarly, the function call stock2.topval(stock1) sets this to the address of the stock2
+object. In general, all class methods have a this pointer set to the address of the object that
+invokes the method. Indeed, total_val in topval() is just shorthand notation for
+this->total_val.
+
+const Stock & Stock::topval(const Stock & s) const
+{
+if (s.total_val > total_val)
+return s; // argument object
+else
+return *this; // invoking object
+}
+
+--------------------------------------------------
+Creating arrays of objects:
+Often, as with the Stock examples, you want to create several objects of the same class. You
+can create separate object variables, as the examples have done so far in this chapter, but it
+might make more sense to create an array of objects. That might sound like a major leap into
+the unknown, but, in fact, you declare an array of objects the same way you declare an array of
+any of the standard types:
+Stock mystuff[4]; // creates an array of 4 Stock objects
+Recall that a program always calls the default class constructor when it creates class objects
+that aren’t explicitly initialized. This declaration requires either that the class explicitly define
+no constructors at all, in which case the implicit do-nothing default constructor is used, or, as
+in this case, that an explicit default constructor be defined. Each element—mystuff[0],
+mystuff[1], and so on—is a Stock object and thus can be used with the Stock methods:
+mystuff[0].update(); // apply update() to 1st element
+mystuff[3].show(); // apply show() to 4th element
+Stock tops = mystuff[2].topval(mystuff[1]);
+// compare 3rd and 2nd elements
+
+constructor for each individual element:
+const int STKS = 4;
+Stock stocks[STKS] = {
+Stock(“NanoSmart”, 12.5, 20),
+Stock(“Boffo Objects”, 200, 2.0),
+Stock(“Monolithic Obelisks”, 130, 3.25),
+Stock(“Fleep Enterprises”, 60, 6.5)
+};
+
+Here the code uses the standard form for initializing an array: a comma-separated list of values
+enclosed in braces. In this case, a call to the constructor method represents each value. If the
+class has more than one constructor, you can use different constructors for different elements:
+const int STKS = 10;
+Stock stocks[STKS] = {
+Stock(“NanoSmart”, 12.5, 20),
+Stock(),
+Stock(“Monolithic Obelisks”, 130, 3.25),
+};
+
+
+--------------------------------------------------
+Class Scope:
+C++ classes introduce a new kind of scope:
+class scope.
+Class scope applies to names defined in a class, such as the names of class data members and
+class member functions. Items that have class scope are known within the class but not outside
+the class. Thus, you can use the same class member names in different classes without
+conflict. For example, the shares member of the Stock class is distinct from the shares member
+of a JobRide class. Also, class scope means you can’t directly access members of a class
+from the outside world. This is true even for public function members. That is, to invoke a
+public member function, you have to use an object:
+
+Similarly, you have to use the scope-resolution operator when you define member functions:
+void Stock::update(double price)
+{
+...
+}
+In short, within a class declaration or a member function definition you can use an unadorned
+member name (the unqualified name), as when sell() calls the set_tot() member function.
+A constructor name is recognized when it is called because its name is the same as the class
+name. Otherwise, you must use the direct membership operator (.), the indirect membership
+operator (->), or the scope-resolution operator (::), depending on the context, when you use
+a class member name. The following code fragment illustrates how identifiers with class scope
+can be accessed:
+class Ik
+{
+private:
+int fuss; // fuss has class scope
+public:
+Ik(int f = 9) {fuss = f; } // fuss is in scope
+void ViewIk() const; // ViewIk has class scope
+};
+void Ik::ViewIk() const //Ik:: places ViewIk into scope
+{
+cout << fuss << endl; // fuss in scope within class methods
+}
+...
+int main()
+{
+Ik * pik = new Ik;
+Ik ee = Ik(8); // constructor in scope because has class name
+ee.ViewIk(); // class object brings ViewIk into scope
+pik->ViewIk(); // pointer-to-Ik brings ViewIk into scope
+
+Class Scope Constants
+Sometimes it would be nice to have symbolic constants with class scope. For example, the
+Stock class declaration uses the literal 30 to specify the array size for company. Also, because
+the constant is the same for all objects, it would be nice to create a single constant shared by
+all objects. You might think the following would be a solution:
+class Stock
+{
+private:
+const int Len = 30; // declare a constant? FAILS
+char company[Len];
+...
+
+But this won’t work because declaring a class describes what an object looks like but doesn’t
+create an object. Hence, until you create an object, there’s no place to store a value. There are,
+however, a couple ways to achieve essentially the same desired effect.
+First, you can declare an enumeration within a class. An enumeration given in a class declaration
+has class scope, so you can use enumerations to provide class scope symbolic names for
+integer constants. That is, you can start off the Stock declaration this way:
+class Stock
+{
+private:
+enum {Len = 30}; // class-specific constant
+char company[Len];
+...
+
+More recently, C++ has introduced a second way of defining a constant within a class—using
+the keyword static:
+class Stock
+{
+private:
+static const int Len = 30; // declare a constant! WORKS
+char company[Len];
+...
+This creates a single constant called Len that is stored with other static variables rather than in
+an object. Thus, there is only one Len constant shared by all Stock objects. Chapter 12,
+“Classes and Dynamic Memory Allocation,” looks further into static class members. You can
+use this technique only for declaring static constants with integral and enumeration values.
+You can’t store a double constant this way
+
+--------------------------------------------------
+Absract Data Types:
+The Stock class is pretty specific. Often, however, programmers define classes to represent
+more general concepts. For example, using classes is a good way to implement what computer
+scientists describe as abstract data types (ADTs). As the name suggests, an ADT describes a
+data type in a general fashion, without bringing in language or implementation details.
+Consider, for example, the stack. By using the stack, you can store data so that data is always
+added to or deleted from the top of the stack. For example, C++ programs use a stack to
+manage automatic variables. As new automatic variables are generated, they are added to the
+top of the stack. When they expire, they are removed from the stack.
+Let’s look at the properties of a stack in a general, abstract way. First, a stack holds several
+items. (That property makes it a container, an even more general abstraction.) Next, a stack is
+characterized by the operations you can perform on it:
+• You can create an empty stack.
+• You can add an item to the top of a stack (that is, you can push an item).
+• You can remove an item from the top (that is, you can pop an item).
+• You can check whether the stack is full.
+• You can check whether the stack is empty
+
+
+// stack.h -- class definition for the stack ADT
+#ifndef STACK_H_
+#define STACK_H_
+typedef unsigned long Item;
+class Stack
+{
+private:
+enum {MAX = 10}; // constant specific to class
+Item items[MAX]; // holds stack items
+int top; // index for top stack item
+public:
+Stack();
+bool isempty() const;
+bool isfull() const;
+// push() returns false if stack already is full, true otherwise
+bool push(const Item & item); // add item to stack
+// pop() returns false if stack already is empty, true otherwise
+bool pop(Item & item); // pop top into item
+};
+#endif
+
+// stack.cpp -- Stack member functions
+#include “stack.h”
+Stack::Stack() // create an empty stack
+{
+top = 0;
+}
+bool Stack::isempty() const
+{
+return top == 0;
+}
+bool Stack::isfull() const
+{
+return top == MAX;
+}
+bool Stack::push(const Item & item)
+{
+if (top < MAX)
+
+items[top++] = item;
+return true;
+}
+else
+return false;
+}
+bool Stack::pop(Item & item)
+{
+if (top > 0)
+{
+item = items[--top];
+return true;
+}
+else
+return false;
+}
+
+Summary
+OOP emphasizes how a program represents data. The first step toward solving a programming
+problem by using the OOP approach is to describe the data in terms of its interface with the
+program, specifying how the data is used. Next, you need to design a class that implements
+the interface. Typically, private data members store the information, whereas public member
+functions, also called methods, provide the only access to the data. The class combines data
+and methods into one unit, and the private aspect accomplishes data hiding.
+Usually, you separate a class declaration into two parts, typically kept in separate files. The
+class declaration proper goes into a header file, with the methods represented by function prototypes.
+The source code that defines the member functions goes into a methods file. This
+approach separates the description of the interface from the details of the implementation. In
+principle, you need to know only the public class interface to use the class. Of course, you can
+look at the implementation (unless it’s been supplied to you in compiled form only), but your
+program shouldn’t rely on details of the implementation, such as knowing that a particular
+value is stored as an int. As long as a program and a class communicate only through methods
+defining the interface, you are free to improve either part separately without worrying
+about unforeseen interactions.
+A class is a user-defined type, and an object is an instance of a class. This means an object is a
+variable of that type or the equivalent of a variable, such as memory allocated by new according
+to the class specification. C++ tries to make user-defined types as similar as possible to
+standard types, so you can declare objects, pointers to objects, and arrays of objects. You can
+pass objects as arguments, return them as function return values, and assign one object to
+another of the same type. If you provide a constructor method, you can initialize objects when
+they are created. If you provide a destructor method, the program executes that method when
+the object expires.
+Each object holds its own copies of the data portion of a class declaration, but they share the
+class methods. If mr_object is the name of a particular object and try_me() is a member function,
+you invoke the member function by using the dot membership operator:
+mr_object.try_me(). OOP terminology describes this function call as sending a try_me message
+to the mr_object object. Any reference to class data members in the try_me() method
+then applies to the data members of the mr_object object. Similarly, the function call
+i_object.try_me() accesses the data members of the i_object object.
+If you want a member function to act on more than one object, you can pass additional objects
+to the method as arguments. If a method needs to refer explicitly to the object that evoked it, it
+can use the this pointer. The this pointer is set to the address of the evoking object, so *this
+is an alias for the object itself.
+Classes are well matched to describing ADTs. The public member function interface provides
+the services described by an ADT, and the class’s private section and the code for the class
+methods provide an implementation that is hidden from clients of the class
+
+
+-------------------------------------------------------------------------------------------------
+Hiding User Input in Linux Based Systems
+#include <termios.h>
+
+...
+
+void HideStdinKeystrokes()
+{
+    termios tty;
+
+    tcgetattr(STDIN_FILENO, &tty);
+
+    /* we want to disable echo */
+    tty.c_lflag &= ~ECHO;
+
+    tcsetattr(STDIN_FILENO, TCSANOW, &tty);
+}
+
+void ShowStdinKeystrokes()
+{
+   termios tty;
+
+    tcgetattr(STDIN_FILENO, &tty);
+
+    /* we want to reenable echo */
+    tty.c_lflag |= ECHO;
+
+    tcsetattr(STDIN_FILENO, TCSANOW, &tty);
+}
+
+
+-------------------------------------------------------------------------------------------------
+Chapter 11: Working with Classes
+You saw how a class defines a data type by
+defining the type of data to be used to represent an object and by also defining, through member
+functions, the operations that can be performed with that data. And you learned about two
+special member functions, the constructor and the destructor, that manage creating and discarding
+objects made to a class specification.
+
+-------------------------------------------------
+Operator Overloading:
+Operator overloading is an
+example of C++ polymorphism. In Chapter 8, “Adventures in Functions,” you saw how C++
+enables you to define several functions that have the same name, provided that they have different
+signatures (argument lists). That is called function overloading, or functional polymorphism
+
+Operator overloading extends the overloading concept
+to operators, letting you assign multiple meanings to C++ operators. Actually, many C++ (and
+C) operators already are overloaded. For example, the * operator, when applied to an address,
+yields the value stored at that address. But applying * to two numbers yields the product of the
+values.
+
+for (int i = 0; i < 20; i++)
+evening[i] = sam[i] + janet[i]; // add element by element
+But in C++, you can define a class that represents arrays and that overloads the + operator so
+that you can do this:
+evening = sam + janet; // add two array objects
+
+To overload an operator, you use a special function form called an operator function. An operator
+function has the form
+operatorop(argument-list)
+where op is the symbol for the operator being overloaded. For example, operator+() overloads
+the + operator and operator*() overloads the * operator.
+
+Then, if district2,
+sid, and sara are all objects of the Salesperson class, you can write this equation:
+district2 = sid + sara;
+The compiler, recognizing the operands as belonging to the Salesperson class, replaces the
+operator with the corresponding operator function:
+district2 = sid.operator+(sara);
+
+// mytime1.h -- Time class before operator overloading
+#ifndef MYTIME1_H_
+#define MYTIME1_H_
+class Time
+{
+private:
+  int hours;
+  int minutes;
+public:
+  Time();
+  Time(int h, int m = 0);
+  void AddMin(int m);
+  void AddHr(int h);
+  void Reset(int h = 0, int m = 0);
+  Time operator+(const Time & t) const;
+  void Show() const;
+};
+#endif
+
+// mytime1.cpp -- implementing Time methods
+#include <iostream>
+#include “mytime1.h”
+Time::Time()
+{
+  hours = minutes = 0;
+}
+Time::Time(int h, int m )
+{
+  hours = h;
+  minutes = m;
+}
+void Time::AddMin(int m)
+{
+  minutes += m;
+  hours += minutes / 60;
+  minutes %= 60;
+}
+void Time::AddHr(int h)
+{
+  hours += h;
+}
+void Time::Reset(int h, int m)
+{
+  hours = h;
+  minutes = m;
+}
+
+Time Time::operator+(const Time & t) const
+{
+Time sum;
+sum.minutes = minutes + t.minutes;
+sum.hours = hours + t.hours + sum.minutes / 60;
+sum.minutes %= 60;
+return sum;
+}
+void Time::Show() const
+{
+std::cout << hours << “ hours, “ << minutes << “ minutes”;
+}
+
+Overloading Restrictions:
+• The overloaded operator must have at least one operand that is a user-defined type. This
+prevents you from overloading operators for the standard types. Thus, you can’t redefine
+the minus operator (-) so that it yields the sum of two double values instead of their difference.
+This restriction preserves program sanity, although it may hinder creative
+accounting.
+
+• You can’t use an operator in a manner that violates the syntax rules for the original operator.
+For example, you can’t overload the modulus operator (%) so that it can be used
+with a single operand:
+
+• You can’t create new operator symbols. For example, you can’t define an operator**()
+function to denote exponentiation.
+
+• You cannot overload the following operators:
+Operator Description
+sizeof The sizeof operator
+. The membership operator
+.* The pointer-to-member operator
+:: The scope-resolution operator
+?: The conditional operator
+typeid An RTTI operator
+const_cast A type cast operator
+dynamic_cast A type cast operator
+reinterpret_cast A type cast operator
+static_cast A type cast operator
+
+Most of the operators in Table 11.1 can be overloaded by using either member or nonmember
+functions. However, you can use only member functions to overload the following
+operators:
+Operator Description
+= Assignment operator
+() Function call operator
+[] Subscripting operator
+-> Class member access by pointer operator
+
+TABLE 11.1 Operators That Can Be Overloaded
++ - * /  % ^
+& | ~= !  = <
+> += -= *= /= %=
+^= &= |= << >> >>=
+<<= == != <= >= &&
+|| ++ -- , ->* ->
+() [] new delete new [] delete []
+
+LISTING 11.8 mytime2.cpp
+// mytime2.cpp -- implementing Time methods
+#include <iostream>
+#include “mytime2.h”
+Time::Time()
+{
+  hours = minutes = 0;
+}
+Time::Time(int h, int m )
+{
+hours = h;
+minutes = m;
+}
+void Time::AddMin(int m)
+{
+minutes += m;
+hours += minutes / 60;
+minutes %= 60;
+}
+void Time::AddHr(int h)
+{
+hours += h;
+}
+void Time::Reset(int h, int m)
+{
+hours = h;
+minutes = m;
+}
+Time Time::operator+(const Time & t) const
+{
+Time sum;
+sum.minutes = minutes + t.minutes;
+sum.hours = hours + t.hours + sum.minutes / 60;
+sum.minutes %= 60;
+return sum;
+}
+Time Time::operator-(const Time & t) const
+{
+Time diff;
+int tot1, tot2;
+tot1 = t.minutes + 60 * t.hours;
+tot2 = minutes + 60 * hours;
+diff.minutes = (tot2 - tot1) % 60;
+diff.hours = (tot2 - tot1) / 60;
+return diff;
+}
+Time Time::operator*(double mult) const
+{
+Time result;
+long totalminutes = hours * mult * 60 + minutes * mult;
+result.hours = totalminutes / 60;
+result.minutes = totalminutes % 60;
+return result;
+}
+void Time::Show() const
+{
+std::cout << hours << “ hours, “ << minutes << “ minutes”;
+}
+-------------------------------------------------
+Friend Functions:
+As you’ve seen, C++ controls access to the private portions of a class object. Usually, public
+class methods serve as the only access, but sometimes this restriction is too rigid to fit particular
+programming problems. In such cases, C++ provides another form of access: the friend.
+Friends come in three varieties:
+• Friend functions
+• Friend classes
+• Friend member functions
+
+By making a function a friend to a class, you allow the function the same access privileges that
+a member function of the class has. We’ll look into friend functions now, leaving the other two
+varieties to Chapter 15, “Friends, Exceptions, and More.”
+
+Before seeing how to make friends, let’s look into why they might be needed. Often, overloading
+a binary operator (that is, an operator with two arguments) for a class generates a need for
+friends. Multiplying a Time object by a real number provides just such a situation, so let’s
+study that case.
+In the Time class example, the overloaded multiplication operator is different from the other
+two overloaded operators in that it combines two different types. That is, the addition and
+subtraction operators each combine two Time values, but the multiplication operator combines
+a Time value with a double value. This restricts how the operator can be used. Remember, the
+left operand is the invoking object. That is,
+A = B * 2.75;
+translates to the following member function call:
+A = B.operator*(2.75);
+But what about the following statement?
+A = 2.75 * B; // cannot correspond to a member function
+Conceptually, 2.75 * B should be the same as B * 2.75, but the first expression cannot correspond
+to a member function because 2.75 is not a type Time object. Remember, the left
+operand is the invoking object, but 2.75 is not an object. So the compiler cannot replace the
+expression with a member function call.
+
+One way around this difficulty is to tell everyone (and to remember yourself) that you can only
+write B * 2.75 but never write 2.75 * B. This is a server-friendly, client-beware solution, and
+that’s not what OOP is about.
+However, there is another possibility—using a nonmember function. (Remember, most operators
+can be overloaded using either member or nonmember functions.) A nonmember function
+is not invoked by an object; instead, any values it uses, including objects, are explicit
+arguments. Thus, the compiler could match the expression
+A = 2.75 * B; // cannot correspond to a member function
+to the following nonmember function call:
+A = operator*(2.75, B);
+The function would have this prototype:
+Time operator*(double m, const Time & t);
+With the nonmember overloaded operator function, the left operand of an operator expression
+corresponds to the first argument of the operator function, and the right operand corresponds
+to the second argument. Meanwhile, the original member function handles operands in the
+opposite order—that is, a Time value multiplied by a double value.
+Using a nonmember function solves the problem of getting the operands in the desired order
+(first double and then Time), but it raises a new problem: Nonmember functions can’t directly
+access private data in a class. Well, at least ordinary nonmember functions lack access. But
+there is a special category of nonmember functions, called friends, that can access private
+members of a class
+
+friend Time operator*(double m, const Time & t); // goes in class declaration
+This prototype has two implications:
+• Although the operator*() function is declared in the class declaration, it is not a member
+function. So it isn’t invoked by using the membership operator.
+• Although the operator*() function is not a member function, it has the same access
+rights as a member function.
+
+Time operator*(double mult, const Time & t) // friend not used in definition
+{
+Time result;
+long totalminutes = t.hours * mult * 60 +t. minutes * mult;
+result.hours = totalminutes / 60;
+result.minutes = totalminutes % 60;
+return result;
+}
+-------------------------------------------------
+Overloading the << operator for output:
+To teach the Time class to use cout, you have to use a friend function. Why? Because a statement
+like
+cout << trip;
+uses two objects, with the ostream class object (cout) first. If you use a Time member function
+to overload <<, the Time object would come first, as it did when you overloaded the * operator
+with a member function. That means you would have to use the << operator this way:
+trip << cout; // if operator<<() were a Time member function
+This would be confusing. But by using a friend function, you can overload the operator
+this way:
+//Version 1
+void operator<<(ostream & os, const Time & t)
+{
+os << t.hours << “ hours, “ << t.minutes << “ minutes”;
+}
+
+//Version 2
+ostream & operator<<(ostream & os, const Time & t)
+{
+os << t.hours << “ hours, “ << t.minutes << “ minutes”;
+return os;
+}
+Note that the return type is ostream &. Recall that this means that the function returns a reference
+to an ostream object. Because a program passes an object reference to the function to
+begin with, the net effect is that the function’s return value is just the object passed to it. That
+is, the statement
+cout << trip;
+becomes the following function call:
+operator<<(cout, trip);
+And that call returns the cout object. So now the following statement does work:
+cout << “Trip time: “ << trip << “ (Tuesday)\n”; // can do
+
+// mytime3.h -- Time class with friends
+#ifndef MYTIME3_H_
+#define MYTIME3_H_
+#include <iostream>
+class Time
+{
+private:
+int hours;
+int minutes;
+public:
+Time();
+Time(int h, int m = 0);
+void AddMin(int m);
+void AddHr(int h);
+void Reset(int h = 0, int m = 0);
+Time operator+(const Time & t) const;
+Time operator-(const Time & t) const;
+Time operator*(double n) const;
+friend Time operator*(double m, const Time & t)
+{ return t * m; } // inline definition
+friend std::ostream & operator<<(std::ostream & os, const Time & t);
+};
+#endif
+
+// mytime3.cpp -- implementing Time methods
+#include “mytime3.h”
+Time::Time()
+{
+hours = minutes = 0;
+}
+Time::Time(int h, int m )
+{
+hours = h;
+minutes = m;
+}
+void Time::AddMin(int m)
+{
+minutes += m;
+hours += minutes / 60;
+minutes %= 60;
+}
+void Time::AddHr(int h)
+{
+hours += h;
+}
+void Time::Reset(int h, int m)
+{
+  hours = h;
+minutes = m;
+}
+Time Time::operator+(const Time & t) const
+{
+Time sum;
+sum.minutes = minutes + t.minutes;
+sum.hours = hours + t.hours + sum.minutes / 60;
+sum.minutes %= 60;
+return sum;
+}
+Time Time::operator-(const Time & t) const
+{
+Time diff;
+int tot1, tot2;
+tot1 = t.minutes + 60 * t.hours;
+tot2 = minutes + 60 * hours;
+diff.minutes = (tot2 - tot1) % 60;
+diff.hours = (tot2 - tot1) / 60;
+return diff;
+}
+Time Time::operator*(double mult) const
+{
+Time result;
+long totalminutes = hours * mult * 60 + minutes * mult;
+result.hours = totalminutes / 60;
+result.minutes = totalminutes % 60;
+return result;
+}
+std::ostream & operator<<(std::ostream & os, const Time & t)
+{
+os << t.hours << “ hours, “ << t.minutes << “ minutes”;
+return os;
+}
+-------------------------------------------------
+State members:
+The Vector class stores both the rectangular coordinates and the polar coordinates for a vector.
+It uses a member called mode to control which form the constructor, the set() method, and
+the overloaded operator<<() function use, with ‘r’ representing the rectangular mode (the
+default) and ‘p’ the polar mode. Such a member is termed a state member because it describes
+the state an object is in. To see what this means, look at the code for the constructor:
+Vector::Vector(double n1, double n2, char form)
+{
+mode = form;
+if (form == ‘r’)
+{
+x = n1;
+y = n2;
+set_mag();
+set_ang();
+}
+else if (form == ‘p’)
+{
+mag = n1;
+ang = n2 / Rad_to_deg;
+set_x();
+set_y();
+}
+else
+{
+cout << “Incorrect 3rd argument to Vector() -- “;
+cout << “vector set to 0\n”;
+x = y = mag = ang = 0.0;
+mode = ‘r’;
+}
+}
+
+
+Vector Vector::operator+(const Vector & b) const
+{
+Vector sum;
+sum.x = x + b.x;
+sum.y = y + b.y;
+sum.set_ang(sum.x, sum.y);
+sum.set_mag(sum.x, sum.y);
+return sum; // version duplicates needlessly
+}
+But it is much simpler and more reliable to let a constructor do the work:
+Vector Vector::operator+(const Vector & b) const
+{
+return Vector(x + b.x, y + b.y); // return the constructed Vector
+}
+-------------------------------------------------
+Using rand() to generate random values:
+// randwalk.cpp -- using the Vector class
+// compile with the vect.cpp file
+#include <iostream>
+#include <cstdlib> // rand(), srand() prototypes
+#include <ctime> // time() prototype
+#include “vect.h”
+int main()
+{
+using namespace std;
+using VECTOR::Vector;
+srand(time(0)); // seed random-number generator
+double direction;
+Vector step;
+Vector result(0.0, 0.0);
+unsigned long steps = 0;
+double target;
+double dstep;
+cout << “Enter target distance (q to quit): “;
+while (cin >> target)
+{
+cout << “Enter step length: “;
+if (!(cin >> dstep))
+break;
+while (result.magval() < target)
+{
+  direction = rand() % 360;
+step.set(dstep, direction, ‘p’);
+result = result + step;
+steps++;
+}
+cout << “After “ << steps << “ steps, the subject “
+“has the following location:\n”;
+cout << result << endl;
+result.polar_mode();
+cout << “ or\n” << result << endl;
+cout << “Average outward distance per step = “
+<< result.magval()/steps << endl;
+steps = 0;
+result.set(0.0, 0.0);
+cout << “Enter target distance (q to quit): “;
+}
+cout << “Bye!\n”;
+return 0;
+}
+-------------------------------------------------
+Automatic conversions and type casts for classes:
+So how do you create a conversion function? To convert to type typeName, you use a conversion
+function in this form:
+operator typeName();  -> operator int() const; //Now you can typecast your class object tp type int.
+Note the following points:
+• The conversion function must be a class method.
+• The conversion function must not specify a return type.
+• The conversion function must have no arguments
+-------------------------------------------------
+Let’s bring addition to the Stonewt class. As mentioned in the discussion of the Time class, you
+can use either a member function or a friend function to overload addition. (To simplify matters,
+assume that no conversion functions of the operator double() form are defined.) You
+can implement addition with the following member function:
+Stonewt Stonewt::operator+(const Stonewt & st) const
+{
+double pds = pounds + st.pounds;
+Stonewt sum(pds);
+return sum;
+}
+Or you can implement addition as a friend function this way:
+Stonewt operator+(const Stonewt & st1, const Stonewt & st2)
+{
+double pds = st1.pounds + st2.pounds;
+Stonewt sum(pds);
+return sum;
+}
+Remember, you can provide the method definition or the friend definition, but not both.
+Either form lets you do the following:
+Stonewt jennySt(9, 12);
+Stonewt bennySt(12, 8);
+Stonewt total;
+total = jennySt + bennySt;
+Also, given the Stonewt(double) constructor, each form lets you do the following:
+Stonewt jennySt(9, 12);
+double kennyD = 176.0;
+Stonewt total;
+total = jennySt + kennyD;
+But only the friend function lets you do this:
+Stonewt jennySt(9, 12);
+double pennyD = 146.0;
+Stonewt total;
+total = pennyD + jennySt;
+To see why, you can translate each addition into the corresponding function calls. First,
+total = jennySt + bennySt;
+becomes
+total = jennySt.operator+(bennySt); // member function
+or else
+total = operator+(jennySt, bennySt); // friend function
+
+In either case, the actual argument types match the formal arguments. Also, the member function
+is invoked, as required, by a Stonewt object.
+Next,
+total = jennySt + kennyD;
+becomes
+total = jennySt.operator+(kennyD); // member function
+or else
+total = operator+(jennySt, kennyD); // friend function
+Again, the member function is invoked, as required, by a Stonewt object. This time, in each
+case, one argument (kennyD) is type double, which invokes the Stonewt(double) constructor
+to convert the argument to a Stonewt object.
+By the way, having an operator double() member function defined would create confusion
+at this point because that would create another option for interpretation. Instead of converting
+kennyD to double and performing Stonewt addition, the compiler could convert jennySt to
+double and perform double addition. Having too many conversion functions creates ambiguities.
+Finally,
+total = pennyD + jennySt;
+becomes
+total = operator+(pennyD, jennySt); // friend function
+Here, both arguments are type double, which invokes the Stonewt(double) constructor to
+convert them to Stonewt objects. The member function cannot be invoked, however.
+total = pennyD.operator+(jennySt); // not meaningful
+The reason is that only a class object can invoke a member function. C++ does not attempt to
+convert pennyD to a Stonewt object. Conversion takes place for member function arguments,
+not for member function invokers.
+The lesson here is that defining addition as a friend makes it easier for a program to accommodate
+automatic type conversions. The reason is that both operands become function arguments,
+so function prototyping comes into play for both operands.
+
+
+
+This chapter covers many important aspects of defining and using classes. Some of the material
+in this chapter may seem vague to you until your own experiences enrich your understanding.
+Normally, the only way you can access private class members is by using a class method. C++
+alleviates that restriction with friend functions. To make a function a friend function, you
+declare the function in the class declaration and preface the declaration with the keyword
+friend.
+C++ extends overloading to operators by letting you define special operator functions that
+describe how particular operators relate to a particular class. An operator function can be a
+class member function or a friend function. (A few operators can only be class member functions.)
+C++ lets you invoke an operator function either by calling the function or by using the
+overloaded operator with its usual syntax. An operator function for the operator op has this
+form:
+operatorop(argument-list)
+argument-list represents operands for the operator. If the operator function is a class member
+function, then the first operand is the invoking object and isn’t part of argument-list. For
+example, in this chapter you overloaded addition by defining an operator+() member function
+for the Vector class. If up, right, and result are three vectors, you can use either of the
+following statements to invoke vector addition:
+result = up.operator+(right);
+result = up + right;
+For the second version, the fact that the operands up and right are type Vector tells C++ to
+use the Vector definition of addition
+
+When an operator function is a member function, the first operand is the object invoking the
+function. In the preceding statements, for example, the up object is the invoking object. If you
+want to define an operator function so that the first operand is not a class object, you must use
+a friend function. Then you can pass the operands to the function definition in whichever
+order you want.
+One of the most common tasks for operator overloading is defining the << operator so that it
+can be used in conjunction with the cout object to display an object’s contents. To allow an
+ostream object to be the first operand, you define the operator function as a friend. To allow
+the redefined operator to be concatenated with itself, you make the return type ostream &.
+Here’s a general form that satisfies those requirements:
+ostream & operator<<(ostream & os, const c_name & obj)
+{
+os << ... ; // display object contents
+return os;
+}
+
+If, however, the class has methods that return values for the data members you want to display,
+you can use those methods instead of direct access in operator<<(). In that case, the function
+needn’t (and shouldn’t) be a friend.
+C++ lets you establish conversions to and from class types. First, any class constructor that
+takes a single argument acts as a conversion function, converting values of the argument type
+to the class type. C++ invokes the constructor automatically if you assign a value of the argument
+type to an object. For example, suppose you have a String class with a constructor that
+takes a char * value as its sole argument. Then, if bean is a String object, you can use the following
+statement:
+bean = “pinto”; // converts type char * to type String
+If, however, you precede the constructor declaration with the keyword explicit, the constructor
+can be used only for explicit conversions:
+bean = String(“pinto”); // converts type char * to type String explicitly
+To convert from a class to another type, you must define a conversion function and provide
+instruction about how to make the conversion. A conversion function must be a member function.
+If it is to convert to type typeName, it should have the following prototype:
+operator typeName();
+Note that it must have no declared return type, must have no arguments, and must (despite
+having no declared return type) return the converted value. For example, a function to convert
+type Vector to type double would have this function form:
+Vector::operator double()
+{
+...
+return a_double_value;
+}
+------------------------------------------------------------------------------------------------------------
+Chapter 12: Classes and Dynamic Memory Allocation
+
+-------------------------------------------------------
+Using dynamic memory allocation for class members:
+A static class member has a special property: A program creates only one copy of a static
+class variable, regardless of the number of objects created. That is, a static member is shared
+among all objects of that class, much as a phone number might be shared among all members
+of a family. If, say, you create 10 StringBad objects, there would be 10 str members and 10
+len members, but just 1 shared num_strings member (see Figure 12.1). This is convenient for
+data that should be private to a class but that should have the same value for all class objects.
+The num_strings member, for example, is intended to keep track of the number of objects
+created
+
+You allocate and initialize
+memory by creating an object using that format. In the case of a static class member, you
+initialize the static member independently, with a separate statement outside the class declaration.
+That’s because the static class member is stored separately rather than as part of an object.
+Note that the initialization statement gives the type and uses the scope operator.
+
+// strngbad.cpp -- StringBad class methods
+#include <cstring> // string.h for some
+#include “strngbad.h”
+using std::cout;
+// initializing static class member
+int StringBad::num_strings = 0;
+// class methods
+// construct StringBad from C string
+StringBad::StringBad(const char * s)
+{
+len = std::strlen(s); // set size
+str = new char[len + 1]; // allot storage
+std::strcpy(str, s); // initialize pointer
+num_strings++; // set object count
+cout << num_strings << “: \”” << str
+<< “\” object created\n”; // For Your Information
+}
+StringBad::StringBad() // default constructor
+{
+len = 4;
+str = new char[4];
+std::strcpy(str, “C++”); // default string
+num_strings++;
+cout << num_strings << “: \”” << str
+<< “\” default object created\n”; // FYI
+}
+StringBad::~StringBad() // necessary destructor
+{
+cout << “\”” << str << “\” object deleted, “; // FYI
+--num_strings; // required
+cout << num_strings << “ left\n”; // FYI
+delete [] str; // required
+}
+std::ostream & operator<<(std::ostream & os, const StringBad & st)
+{
+os << st.str;
+return os;
+}
+
+The problems with the StringBad class stem from implicit member functions that are defined
+automatically and whose behavior is inappropriate to this particular class design. In particular,
+C++ automatically provides the following member functions:
+• A default constructor if you define no constructors
+• A copy constructor if you don’t define one
+• An assignment operator if you don’t define one
+• A default destructor if you don’t define one
+• An address operator if you don’t define one
+
+Klunk::Klunk() { } // implicit default constructor
+
+Klunk::Klunk() // explicit default constructor
+{
+klunk_ct = 0;
+...
+}
+-------------------------------------------------------
+Implicit and explicit copy constructors:
+A copy constructor is used to copy an object to a newly created object. That is, it’s used during
+initialization, not during ordinary assignment. A copy constructor for a class normally has this
+prototype:
+Class_name(const Class_name &);
+
+Note that it takes a constant reference to a class object as its argument. For example, a copy
+constructor for the String class would have this prototype:
+StringBad(const StringBad &);
+You must know two things about a copy constructor: when it’s used and what it does.
+
+A copy constructor is invoked whenever a new object is created and initialized to an existing
+object of the same kind. This happens in several situations. The most obvious situation is
+when you explicitly initialize a new object to an existing object. For example, given that motto
+is a StringBad object, the following four defining declarations invoke a copy constructor:
+StringBad ditto(motto); // calls StringBad(const StringBad &)
+StringBad metoo = motto; // calls StringBad(const StringBad &)
+StringBad also = StringBad(motto);
+// calls StringBad(const StringBad &)
+StringBad * pStringBad = new StringBad(motto);
+// calls StringBad(const StringBad &)
+
+By the way, the fact that passing an object by value involves invoking a copy constructor is a
+good reason for passing by reference instead. That saves the time of invoking the constructor
+and the space for storing the new object.
+
+The default copy constructor performs a member-by-member copy of the nonstatic members
+(memberwise copying, also sometimes called shallow copying). Each member is copied by
+value. //shallow copy creates object that points to same memory address
+
+The cure for the problems in the class design is to make a deep copy. That is, rather than just
+copy the address of the string, the copy constructor should duplicate the string and assign the
+address of the duplicate to the str member. That way, each object gets its own string rather
+than referring to another object’s string. And each call of the destructor frees a different string
+rather than making duplicate attempts at freeing the same string. Here’s how you can code the
+String copy constructor: //deep copy creates object that has its own memory address.
+StringBad::StringBad(const StringBad & st)
+{
+num_strings++; // handle static member update
+len = st.len; // same length
+str = new char [len + 1]; // allot space
+std:::strcpy(str, st.str); // copy string to new location
+cout << num_strings << “: \”” << str
+<< “\” object created\n”; // For Your Information
+}
+
+If a class contains members that are pointers initialized by new, you should define a copy constructor
+that copies the pointed-to data instead of copying the pointers themselves. This is termed deep
+copying. The alternative form of copying (memberwise, or shallow, copying) just copies pointer values.
+A shallow copy is just that—the shallow “scraping off” of pointer information for copying,
+rather than the deeper “mining” required to copy the constructs referred to by the pointers.
+-------------------------------------------------------
+Implicit and explicit overloaded assignment operators:
+Not all the problems in Listing 12.3 can be blamed on the default copy constructor; you have
+to look at the default assignment operator, too. Just as ANSI C allows structure assignment,
+C++ allows class object assignment. It does so by automatically overloading an assignment
+operator for a class. This operator has the following prototype:
+
+Class_name & Class_name::operator=(const Class_name &);
+
+That is, it takes and returns a reference to an object of the class. For example, here’s the prototype
+for the StringBad class:
+StringBad & StringBad::operator=(const StringBad &);
+
+An overloaded assignment operator is used when you assign one object to another existing
+object:
+StringBad headline1(“Celery Stalks at Midnight”);
+...
+StringBad knot;
+knot = headline1; // assignment operator invoked
+An assignment operator is not necessarily used when initializing an object:
+StringBad metoo = knot; // use copy constructor, possibly assignment, too
+Here metoo is a newly created object being initialized to knot’s values; hence, the copy constructor
+is used. However, as mentioned before, implementations have the option of handling
+this statement in two steps: using the copy constructor to create a temporary object and then
+using assignment to copy the values to the new object. That is, initialization always invokes a
+copy constructor, and forms using the = operator may also invoke an assignment operator.
+
+Like a copy constructor, an implicit implementation of an assignment operator performs a
+member-to-member copy. If a member is itself an object of some class, the program uses the
+assignment operator defined for that class to do the copying for that particular member. Static
+data members are unaffected.
+
+The solution for the problems created by an inappropriate default assignment operator is to
+provide your own assignment operator definition, one that makes a deep copy. The implementation
+is similar to that of the copy constructor, but there are some differences:
+• Because the target object may already refer to previously allocated data, the function
+should use delete [] to free former obligations.
+• The function should protect against assigning an object to itself; otherwise, the freeing of
+memory described previously could erase the object’s contents before they are reassigned.
+• The function returns a reference to the invoking object
+
+StringBad & StringBad::operator=(const StringBad & st)
+{
+if (this == &st) // object assigned to itself
+return *this; // all done
+delete [] str; // free old string
+len = st.len;
+str = new char [len + 1]; // get space for new string
+std::strcpy(str, st.str); // copy the string
+return *this; // return reference to invoking object
+}
+
+First, the code checks for self-assignment. It does so by seeing if the address of the right-hand
+side of the assignment (&s) is the same as the address of the receiving object (this). If so, the
+program returns *this and terminates. You may recall from Chapter 10 that the assignment
+operator is one of the operators that can be overloaded only by a class member function.
+Otherwise, the function proceeds to free the memory that str pointed to. The reason for this
+is that shortly thereafter str will be assigned the address of a new string. If you don’t first
+apply the delete operator, the previous string will remain in memory. Because the program no
+longer has a pointer to the old string, that memory will be wasted.
+Next, the program proceeds like a copy constructor, allocating enough space for the new string
+and then copying the string from the right-hand object to the new location.
+When it is finished, the program returns *this and terminates.
+Assignment does not create a new object, so you don’t have to adjust the value of the static
+data member num_strings.
+Adding the copy constructor and the assignment operator described previously to the
+StringBad class clears up all the problems. Here, for example, are the last few lines of output
+after these changes have been made:
+
+The new default constructor merits notice. It look likes this:
+String::String()
+{
+len = 0;
+str = new char[1];
+str[0] = ‘\0’; // default string
+}
+You might wonder why the code uses
+str = new char[1];
+and not this:
+str = new char;
+Both forms allocate the same amount of memory. The difference is that the first form is compatible
+with the class destructor and the second is not. Recall that the destructor contains this
+code:
+delete [] str;
+Using delete []is compatible with pointers initialized by using new []and with the null
+pointer. So another possibility would be to replace
+str = new char[1];
+str[0] = ‘\0’; // default string
+with this:
+str = 0; // sets str to the null pointer
+
+Three of the methods in the String class perform comparisons. The operator<() function
+returns true if the first string comes before the second string alphabetically (or, more precisely,
+in the machine collating sequence). The simplest way to implement the string comparison
+functions is to use the standard strcmp() function, which returns a negative value if its first
+argument precedes the second alphabetically, 0 if the strings are the same, and a positive value
+if the first follows the second alphabetically. So, you can use strcmp() like this:
+bool operator<(const String &st1, const String &st2)
+{
+if (std::strcmp(st1.str, st2.str) > 0)
+return true;
+else
+return false;
+}
+
+Because the built-in > operator already returns a type bool value, you can simplify the code
+further to this:
+bool operator<(const String &st1, const String &st2)
+{
+return (std::strcmp(st1.str, st2.str) < 0);
+}
+
+bool operator>(const String &st1, const String &st2)
+{
+return st2.str < st1.str;
+}
+bool operator==(const String &st1, const String &st2)
+{
+return (std::strcmp(st1.str, st2.str) == 0);
+}
+
+The first definition expresses the > operator in terms of the < operator and would be a good
+choice for an inline function.
+Making the comparison functions friends facilitates comparisons between String objects and
+regular C strings. For example, suppose answer is a String object and that you have the following
+code:
+if (“love” == answer)
+
+However, C++ distinguishes between const and non-const function signatures when overloading,
+so you can provide a second version of operator[]() that is used just by const
+String objects:
+// for use with const String objects
+const char & String::operator[](int i) const
+{
+return str[i];
+}
+With the definitions, you have read/write access to regular String objects and read-only access
+to const String data:
+String text(“Once upon a time”);
+const String answer(“futile”);
+cout << text[1]; // ok, uses non-const version of operator[]()
+cout << answer[1]; // ok, uses const version of operator[]()
+cin >> text[1]; // ok, uses non-const version of operator[]()
+cin >> answer[1]; // compile-time error
+
+-------------------------------------------------------
+What you must do if you use new in a constructor:
+
+If you use new in a constructor, you must deallocate it in the destructor to ensure no memory leaks occur
+Follow new w/ delete
+and new[] with delete[]
+
+-------------------------------------------------------
+Using static class members:
+
+It’s possible to declare a member function as being static. (The keyword static should appear
+in the function declaration but not in the function definition, if the latter is separate.) This has
+two important consequences.
+You can give the String class a static member function called HowMany() with the following prototype/definition
+in the class declaration:
+static int HowMany() { return num_strings; }
+It could be invoked like this:
+int count = String::HowMany(); // invoking a static member function
+
+Static member functions can only access static data.
+
+string1.h
+// string1.h -- fixed and augmented string class definition
+#include <iostream>
+using std::ostream;
+using std::istream;
+#ifndef STRING1_H_
+#define STRING1_H_
+class String
+{
+private:
+char * str; // pointer to string
+int len; // length of string
+static int num_strings; // number of objects
+static const int CINLIM = 80; // cin input limit
+public:
+// constructors and other methods
+String(const char * s); // constructor
+String(); // default constructor
+String(const String &); // copy constructor
+~String(); // destructor
+int length () const { return len; }
+// overloaded operator methods
+String & operator=(const String &);
+String & operator=(const char *);
+char & operator[](int i);
+const char & operator[](int i) const;
+// overloaded operator friends
+friend bool operator<(const String &st, const String &st2);
+friend bool operator>(const String &st1, const String &st2);
+friend bool operator==(const String &st, const String &st2);
+friend ostream & operator<<(ostream & os, const String & st);
+friend istream & operator>>(istream & is, String & st);
+// static function
+static int HowMany();
+};
+#endif
+
+string1.cpp
+// string1.cpp -- String class methods
+#include <cstring> // string.h for some
+#include “string1.h” // includes <iostream>
+using std::cin;
+using std::cout;
+// initializing static class member
+int String::num_strings = 0;
+// static method
+int String::HowMany()
+{
+return num_strings;
+}
+// class methods
+String::String(const char * s) // construct String from C string
+{
+len = std::strlen(s); // set size
+str = new char[len + 1]; // allot storage
+std::strcpy(str, s); // initialize pointer
+num_strings++; // set object count
+}
+String::String() // default constructor
+{
+len = 4;
+str = new char[1];
+str[0] = ‘\0’; // default string
+num_strings++;
+}
+String::String(const String & st)
+{
+num_strings++; // handle static member update
+len = st.len; // same length
+str = new char [len + 1]; // allot space
+std::strcpy(str, st.str); // copy string to new location
+}
+String::~String() // necessary destructor
+{
+--num_strings; // required
+delete [] str; // required
+}
+// overloaded operator methods
+// assign a String to a String
+String & String::operator=(const String & st)
+{
+if (this == &st)
+return *this;
+delete [] str;
+len = st.len;
+str = new char[len + 1];
+std::strcpy(str, st.str);
+return *this;
+}
+// assign a C string to a String
+String & String::operator=(const char * s)
+{
+delete [] str;
+len = std::strlen(s);
+str = new char[len + 1];
+std::strcpy(str, s);
+return *this;
+}
+// read-write char access for non-const String
+char & String::operator[](int i)
+{
+return str[i];
+}
+// read-only char access for const String
+const char & String::operator[](int i) const
+{
+return str[i];
+}
+// overloaded operator friends
+bool operator<(const String &st1, const String &st2)
+{
+return (std::strcmp(st1.str, st2.str) < 0);
+}
+bool operator>(const String &st1, const String &st2)
+{
+return st2.str < st1.str;
+}
+bool operator==(const String &st1, const String &st2)
+{
+return (std::strcmp(st1.str, st2.str) == 0);
+}
+// simple String output
+ostream & operator<<(ostream & os, const String & st)
+{
+os << st.str;
+return os;
+}
+// quick and dirty String input
+istream & operator>>(istream & is, String & st)
+{
+char temp[String::CINLIM];
+is.get(temp, String::CINLIM);
+if (is)
+st = temp;
+while (is && is.get() != ‘\n’)
+continue;
+return is;
+}
+
+Things to Remember When Using new in Constructors
+By now you’ve noticed that you must take special care when using new to initialize pointer
+members of an object. In particular, you should do the following:
+• If you use new to initialize a pointer member in a constructor, you should use delete in
+the destructor.
+• The uses of new and delete should be compatible. You should pair new with delete and
+new [] with delete [].
+• If there are multiple constructors, all should use new the same way—either all with
+brackets or all without brackets. There’s only one destructor, so all constructors have to
+be compatible to that destructor. However, it is permissible to initialize a pointer with
+new in one constructor and with the null pointer (NULL or 0) in another constructor
+because it’s okay to apply the delete operation (with or without brackets) to the null
+pointer.
+NULL or 0?
+The null pointer can be represented by 0 or by NULL, a symbolic constant defined as 0 in several
+header files. C programmers often use NULL instead of 0 as a visual reminder that the value is a
+pointer value, just as they use ‘\0’ instead of 0 for the null character as a visual reminder that this
+value is a character. The C++ tradition, however, seems to favor using a simple 0 instead of the
+equivalent NULL.
+• You should define a copy constructor that initializes one object to another by doing deep
+copying. Typically, the constructor should emulate the following example:
+String::String(const String & st)
+{
+num_strings++; // handle static member update if necessary
+len = st.len; // same length
+str = new char [len + 1]; // allot space
+std::strcpy(str, st.str); // copy string to new location
+}
+In particular, the copy constructor should allocate space to hold the copied data, and it
+should copy the data, not just the address of the data. Also, it should update any static
+class members whose value would be affected by the process.
+• You should define an assignment operator that copies one object to another by doing
+deep copying. Typically, the class method should emulate the following example:
+String & String::operator=(const String & st)
+{
+if (this == &st) // object assigned to itself
+return *this; // all done
+delete [] str; // free old string
+len = st.len;
+str = new char [len + 1]; // get space for new string
+std::strcpy(str, st.str); // copy the string
+return *this; // return reference to invoking object
+}
+
+-------------------------------------------------------
+Using pointers to objects:
+
+Using ptrs to objects can be a more efficient way of keeping track of your objects.
+
+// use pointers to keep track of shortest, first strings
+String * shortest = &sayings[0]; // initialize to first object
+String * first = &sayings[0];
+for (i = 1; i < total; i++)
+{
+if (sayings[i].length() < shortest->length())
+shortest = &sayings[i];
+if (sayings[i] < *first) // compare values
+first = &sayings[i]; // assign address
+}
+cout << “Shortest saying:\n” << * shortest << endl;
+cout << “First alphabetically:\n” << * first << endl;
+
+*Recall that placement new allows you to specify the memory location used to allocate memory
+char * buffer = new char[BUF]; // get a block of memory
+JustTesting *pc1, *pc2;
+pc1 = new (buffer) JustTesting; // place object in buffer
+pc2 = new JustTesting(“Heap1”, 20); // place object on heap
+
+Overloading the << Operator
+To redefine the << operator so that you use it with cout to display an object’s contents, you
+define a friend operator function that has the following form:
+ostream & operator<<(ostream & os, const c_name & obj)
+{
+os << ... ; // display object contents
+return os;
+}
+Here c_name represents the name of the class. If the class provides public methods that return
+the required contents, you can use those methods in the operator function and dispense with
+the friend status.
+
+Conversion Functions
+To convert a single value to a class type, you create a class constructor that has the following
+prototype:
+c_name(type_name value);
+Here c_name represents the class name, and type_name represents the name of the type you
+want to convert.
+To convert a class type to some other type, you create a class member function that has the following
+prototype:
+operator type_name();
+Although this function has no declared return type, it should return a value of the desired
+type.
+Remember to use conversion functions with care. You can use the keyword explicit when
+declaring a constructor to prevent it from being used for implicit conversions
+
+Classes Whose Constructors Use new
+You need to take several precautions when designing classes that use the new operator to allocate
+memory pointed to by a class member (yes, we summarized these precautions recently,
+but the rules are very important to remember, particularly because the compiler does not
+know them and, thus, won’t catch your mistakes):
+• Any class member that points to memory allocated by new should have the delete operator
+applied to it in the class destructor. This frees the allocated memory.
+• If a destructor frees memory by applying delete to a pointer that is a class member,
+every constructor for that class should initialize that pointer, either by using new or by
+setting the pointer to the null pointer.
+• Constructors should settle on using either new [] or new, but not a mixture of both. The
+destructor should use delete [] if the constructors use new [], and it should use
+delete if the constructors use new.
+• You should define a copy constructor that allocates new memory rather than copying a
+pointer to existing memory. This enables a program to initialize one class object to
+another. The constructor should normally have the following prototype:
+className(const className &)
+• You should define a class member function that overloads the assignment operator and
+that has a function definition with the following prototype (where c_pointer is a member
+of the c_name class and has the type pointer-to-type_name). The following example
+assumes that the constructors initialize the variable c_pointer by using new []:
+c_name & c_name::operator=(const c_name & cn)
+{
+if (this == & cn_)
+return *this; // done if self-assignment
+delete [] c_pointer;
+// set size number of type_name units to be copied
+c_pointer = new type_name[size];
+// then copy data pointed to by cn.c_pointer to
+// location pointed to by c_pointer
+...
+return *this;
+}
+
+-------------------------------------------------------
+Implementing a queue abstract data type (ADT):
+A queue is an abstract data type (ADT) that holds an ordered sequence of items. New items are added to the
+rear of the queue, and items can be removed from the front. A queue is a bit like a stack,
+except that a stack has additions and removals at the same end. This makes a stack a LIFO
+(last in, first out) structure, whereas the queue is a FIFO (first in, first out) structure.
+Conceptually, a queue is like a line at a checkout stand or an ATM, so it’s ideally suited to the
+task. So, one part of the project is to define a Queue class. (In Chapter 16, you’ll read about the
+Standard Template Library queue class, but you’ll learn more by developing your own than by
+just reading about such a class.)
+
+A Queue Class
+The first order of business is to design a Queue class. First, you need to list the attributes of the
+kind of queue you’ll need:
+
+• A queue holds an ordered sequence of items.
+• A queue has a limit on the number of items it can hold.
+• You should be able to create an empty queue.
+• You should be able to check whether a queue is empty.
+• You should be able to check whether a queue is full.
+• You should be able to add an item to the end of a queue.
+• You should be able to remove an item from the front of a queue.
+• You should be able to determine the number of items in the queue
+
+class Queue
+{
+enum {Q_SIZE = 10};
+private:
+// private representation to be developed later
+public:
+Queue(int qs = Q_SIZE); // create queue with a qs limit
+~Queue();
+bool isempty() const;
+bool isfull() const;
+int queuecount() const;
+bool enqueue(const Item &item); // add item to end
+bool dequeue(Item &item); // remove item from front
+};
+
+A linked list consists of a sequence of nodes. Each node contains
+the information to be held in the list, plus a pointer to the next node in the list. For the queue
+in this example, each data part is a type Item value, and you can use a structure to represent a
+node:
+
+struct Node
+{
+Item item; // data stored in the node
+struct Node * next; // pointer to next node
+};
+
+The member initializer list consists of a comma-separated list of initializers
+preceded by a colon. It’s placed after the closing parenthesis of the argument list and before the
+opening bracket of the function body. If a data member is named mdata and if it’s to be initialized
+to the value val, the initializer has the form mdata(val). Using this notation, you can
+write the Queue constructor like this:
+Queue::Queue(int qs) : qsize(qs) // initialize qsize to qs
+{
+front = rear = NULL;
+items = 0;
+}
+
+In general, the initial value can involve constants and arguments from the constructor’s argument
+list. The technique is not limited to initializing constants; you can also write the Queue
+constructor like this:
+Queue::Queue(int qs) : qsize(qs), front(NULL), rear(NULL), items(0)
+{
+}
+
+Incidentally, the parenthesized form used in the member initializer list can be used in ordinary
+initializations, too. That is, if you like, you can replace code like
+int games = 162;
+double talk = 2.71828;
+with
+int games(162);
+double talk(2.71828);
+
+Enqueue:
+1. Terminate if the queue is already full. (For this implementation, the maximum size is
+selected by the user via the constructor.)
+2. Create a new node, and terminate if it can’t create a new node—for example, if the
+request for more memory fails.
+3. Place proper values into the node. In this case, the code copies an Item value into the
+data part of the node and sets the node’s next pointer to NULL. This prepares the node to
+be the last item in the queue.
+4. Increase the item count (items) by one.
+5. Attach the node to the rear of the queue. There are two parts to this process. The first is
+linking the node to the other nodes in the list. This is done by having the next pointer
+of the currently rear node point to the new rear node. The second part is to set the
+Queue member pointer rear to point to the new node so that the queue can access the
+last node directly. If the queue is empty, you must also set the front pointer to point to
+the new node. (If there’s just one node, it’s both the front and the rear node.)
+
+Dequeue:
+1. Terminate if the queue is already empty.
+2. Provide the first item in the queue to the calling function. This is accomplished by copying
+the data portion of the current front node into the reference variable passed to the
+method.
+3. Decrease the item count (items) by one.
+4. Save the location of the front node for later deletion.
+5. Take the node off the queue. This is accomplished by setting the Queue member pointer
+front to point to the next node, whose address is provided by front->next.
+6. To conserve memory, delete the former first node.
+7. If the list is now empty, set rear to NULL. (The front pointer would already be NULL in
+this case, after setting front->next.)
+
+Queue::~Queue()
+{
+Node * temp;
+while (front != NULL) // while queue is not yet empty
+{
+temp = front; // save address of front item
+front = front->next;// reset pointer to next item
+delete temp; // delete former front
+}
+}
+
+
+// queue.h -- interface for a queue
+#ifndef QUEUE_H_
+#define QUEUE_H_
+// This queue will contain Customer items
+class Customer
+{
+private:
+long arrive; // arrival time for customer
+int processtime; // processing time for customer
+public:
+Customer() { arrive = processtime = 0; }
+void set(long when);
+long when() const { return arrive; }
+int ptime() const { return processtime; }
+};
+typedef Customer Item;
+class Queue
+{
+private:
+// class scope definitions
+// Node is a nested structure definition local to this class
+struct Node { Item item; struct Node * next;};
+enum {Q_SIZE = 10};
+// private class members
+Node * front; // pointer to front of Queue
+Node * rear; // pointer to rear of Queue
+int items; // current number of items in Queue
+const int qsize; // maximum number of items in Queue
+// preemptive definitions to prevent public copying
+Queue(const Queue & q) : qsize(0) { }
+Queue & operator=(const Queue & q) { return *this;}
+public:
+Queue(int qs = Q_SIZE); // create queue with a qs limit
+~Queue();
+bool isempty() const;
+bool isfull() const;
+int queuecount() const;
+bool enqueue(const Item &item); // add item to end
+bool dequeue(Item &item); // remove item from front
+};
+#endif
+
+
+// queue.cpp -- Queue and Customer methods
+#include “queue.h”
+#include <cstdlib> // (or stdlib.h) for rand()
+// Queue methods
+Queue::Queue(int qs) : qsize(qs)
+{
+front = rear = NULL;
+items = 0;
+}
+Queue::~Queue()
+{
+Node * temp;
+while (front != NULL) // while queue is not yet empty
+{
+temp = front; // save address of front item
+front = front->next;// reset pointer to next item
+delete temp; // delete former front
+}
+}
+bool Queue::isempty() const
+{
+return items == 0;
+}
+bool Queue::isfull() const
+{
+return items == qsize;
+}
+int Queue::queuecount() const
+{
+return items;
+}
+// Add item to queue
+bool Queue::enqueue(const Item & item)
+{
+if (isfull())
+return false;
+Node * add = new Node; // create node
+if (add == NULL)
+return false; // quit if none available
+add->item = item; // set node pointers
+add->next = NULL;
+items++;
+if (front == NULL) // if queue is empty,
+front = add; // place item at front
+else
+rear->next = add; // else place at rear
+rear = add; // have rear point to new node
+return true;
+}
+// Place front item into item variable and remove from queue
+bool Queue::dequeue(Item & item)
+{
+if (front == NULL)
+return false;
+item = front->item; // set item to first item in queue
+items--;
+Node * temp = front; // save location of first item
+front = front->next; // reset front to next item
+delete temp; // delete former first item
+if (items == 0)
+rear = NULL;
+return true;
+}
+// customer method
+// when is the time at which the customer arrives
+// the arrival time is set to when and the processing
+// time set to a random value in the range 1 - 3
+void Customer::set(long when)
+{
+processtime = std::rand() % 3 + 1;
+arrive = when;
+}
+
+// bank.cpp -- using the Queue interface
+// compile with queue.cpp
+#include <iostream>
+#include <cstdlib> // for rand() and srand()
+#include <ctime> // for time()
+#include “queue.h”
+const int MIN_PER_HR = 60;
+bool newcustomer(double x); // is there a new customer?
+int main()
+{
+using std::cin;
+using std::cout;
+using std::endl;
+using std::ios_base;
+// setting things up
+std::srand(std::time(0)); // random initializing of rand()
+cout << “Case Study: Bank of Heather Automatic Teller\n”;
+cout << “Enter maximum size of queue: “;
+int qs;
+cin >> qs;
+Queue line(qs); // line queue holds up to qs people
+cout << “Enter the number of simulation hours: “;
+int hours; // hours of simulation
+cin >> hours;
+// simulation will run 1 cycle per minute
+long cyclelimit = MIN_PER_HR * hours; // # of cycles
+cout << “Enter the average number of customers per hour: “;
+double perhour; // average # of arrival per hour
+cin >> perhour;
+double min_per_cust; // average time between arrivals
+min_per_cust = MIN_PER_HR / perhour;
+Item temp; // new customer data
+long turnaways = 0; // turned away by full queue
+long customers = 0; // joined the queue
+long served = 0; // served during the simulation
+long sum_line = 0; // cumulative line length
+int wait_time = 0; // time until autoteller is free
+long line_wait = 0; // cumulative time in line
+// running the simulation
+for (int cycle = 0; cycle < cyclelimit; cycle++)
+{
+if (newcustomer(min_per_cust)) // have newcomer
+{
+if (line.isfull())
+turnaways++;
+else
+{
+  customers++;
+temp.set(cycle); // cycle = time of arrival
+line.enqueue(temp); // add newcomer to line
+}
+}
+if (wait_time <= 0 && !line.isempty())
+{
+line.dequeue (temp); // attend next customer
+wait_time = temp.ptime(); // for wait_time minutes
+line_wait += cycle - temp.when();
+served++;
+}
+if (wait_time > 0)
+wait_time--;
+sum_line += line.queuecount();
+}
+// reporting results
+if (customers > 0)
+{
+cout << “customers accepted: “ << customers << endl;
+cout << “ customers served: “ << served << endl;
+cout << “ turnaways: “ << turnaways << endl;
+cout << “average queue size: “;
+cout.precision(2);
+cout.setf(ios_base::fixed, ios_base::floatfield);
+cout.setf(ios_base::showpoint);
+cout << (double) sum_line / cyclelimit << endl;
+cout << “ average wait time: “
+<< (double) line_wait / served << “ minutes\n”;
+}
+else
+cout << “No customers!\n”;
+cout << “Done!\n”;
+return 0;
+}
+// x = average time, in minutes, between customers
+// return value is true if customer shows up this minute
+bool newcustomer(double x)
+{
+return (std::rand() * x / RAND_MAX < 1);
+}
+
+Summary
+This chapter covers many important aspects of defining and using classes. Several of these
+aspects are subtle—even difficult—concepts. If some of them seem obscure or unusually complex
+to you, don’t feel bad; they affect most newcomers to C++ that way. Often, the way you
+come to really appreciate concepts such as copy constructors is through getting into trouble by
+ignoring them. So some of the material in this chapter may seem vague to you until your own
+experiences enrich your understanding.
+You can use new in a class constructor to allocate memory for data and then assign the address
+of the memory to a class member. This enables a class, for example, to handle strings of various
+sizes without committing the class design in advance to a fixed array size. Using new in
+class constructors also raises potential problems when an object expires. If an object has member
+pointers pointing to memory allocated by new, freeing the memory used to hold the object
+does not automatically free the memory pointed to by the object member pointers. Therefore,
+if you use new in a class constructor to allocate memory, you should use delete in the class
+destructor to free that memory. That way, the demise of an object automatically triggers the
+deletion of pointed-to memory.
+Objects that have members pointing to memory allocated by new also have problems with initializing
+one object to another or assigning one object to another. By default, C++ uses memberwise
+initialization and assignment, which means that the initialized or the assigned-to
+object winds up with exact copies of the original object’s members. If an original member
+points to a block of data, the copy member points to the same block. When the program eventually
+deletes the two objects, the class destructor attempts to delete the same block of memory
+twice, which is an error. The solution is to define a special copy constructor that redefines
+initialization and to overload the assignment operator. In each case, the new definition should
+create duplicates of any pointed-to data and have the new object point to the copies. That way,
+both the old and the new objects refer to separate but identical data, with no overlap. The same reasoning applies to defining an assignment operator. In each case, the goal is to make a
+deep copy—that is, to copy the real data and not just pointers to the data.
+When an object has automatic storage or external storage, the destructor for that object is
+called automatically when the object ceases to exist. If you allocate storage for an object by
+using new and assign its address to a pointer, the destructor for that object is called automatically
+when you apply delete to the pointer. However, if you allocate storage for class objects
+by using placement new instead of regular new, you also take on the responsibility of calling
+the destructor for that object explicitly by invoking the destructor method with a pointer to
+the object. C++ allows you to place structure, class, and enumeration definitions inside a class.
+Such nested types have class scope, meaning that they are local to the class and don’t conflict
+with structures, classes, and enumerations of the same name that are defined elsewhere.
+C++ provides a special syntax for class constructors that can be used to initialize data members.
+This syntax consists of a colon followed by a comma-separated list of initializers. This is
+placed after the closing parenthesis of the constructor arguments and before the opening brace
+of the function body. Each initializer consists of the name of the member being initialized followed
+by parentheses containing the initialization value. Conceptually, these initializations
+take place when the object is created and before any statements in the function body are executed.
+The syntax looks like this:
+queue(int qs) : qsize(qs), items(0), front(NULL), rear(NULL) { }
+This form is obligatory if the data member is a nonstatic const member or a reference.
+As you might have noticed, classes require much more care and attention to detail than do
+simple C-style structures. In return, they do much more for you.
+--------------------------------------------------------------------------------------------------------------------
+Chapter 13: Class inheritance
+-One of the main goals of Object oriented Programming is to provide reusable code.
+-Class inheritance allows you to derive new classes from old classes. The old class is called the base class.
+• You can add functionality to an existing class. For example, given a basic array class, you
+could add arithmetic operations.
+• You can add to the data that a class represents. For example, given a basic string class,
+you could derive a class that adds a data member representing a color to be used when
+displaying the string.
+• You can modify how a class method behaves. For example, given a Passenger class that
+represents the services provided to an airline passenger, you can derive a
+FirstClassPassenger class that provides a higher level of services.
